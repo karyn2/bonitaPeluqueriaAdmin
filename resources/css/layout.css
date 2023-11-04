@@ -1,0 +1,22 @@
+
+.fuente{
+    font-size: 23px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+  }
+
+  .fuentePeq{
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: white;
+  }
+
+.fondoNav{
+  background-image: radial-gradient(circle at 67.5% 1.93%, #7f77a2 0, #9a86ba 16.67%, #bc97d4 33.33%, #e4abf1 50%, #ffbeff 66.67%, #ffcfff 83.33%, #ffdcff 100%);
+}
+
+.fondoNavLateral{
+  background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%); 
+}
+

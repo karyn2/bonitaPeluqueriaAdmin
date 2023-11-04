@@ -1,0 +1,28 @@
+.contenedorPrincipal{
+    padding-top: 5%;
+    padding-left: 10%;
+}
+
+.cuadro {
+    border:.5px solid #fff;
+    background:#faf8f8;
+    border-radius:10px;
+    box-shadow:0px 0px 10px #000;
+    z-index: 1;
+    width: 90%;
+    height: 90%;
+    padding: 8%;
+  }
+
+a {
+    text-decoration: none;
+}
+
+.fuenteEtiquetas{
+    font-size: 24px;
+    font-family:  'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #635677;
+    padding-left: 0.5rem;
+  }
+  
