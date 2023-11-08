@@ -79,8 +79,10 @@
     <nav class="sidebar-navigation fondoNavLateral">
             <ul>
                 <li class="active">
-                    <i class="fa fa-calendar"></i>
-                    <span class="tooltip">Citas</span>
+                    <a href="{{ route('listaCitas') }}">
+                        <i class="fa fa-calendar"></i>
+                        <span class="tooltip">Citas</span>
+                    </a>
                 </li>
                 <li>
                     <i class="fa fa-hdd-o"></i>

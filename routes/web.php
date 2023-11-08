@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Rutas controladores
+use App\Http\Controllers\CitasAdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +22,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Rutas citas administrador
+
+Route::get('/citas', [CitasAdminController::class, 'index'])->name('listaCitas');
+
+
+
