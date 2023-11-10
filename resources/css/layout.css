@@ -13,10 +13,14 @@
   }
 
 .fondoNav{
-  background-image: radial-gradient(circle at 67.5% 1.93%, #7f77a2 0, #9a86ba 16.67%, #bc97d4 33.33%, #e4abf1 50%, #ffbeff 66.67%, #ffcfff 83.33%, #ffdcff 100%);
+  background-color: #E0D7F6;
 }
 
 .fondoNavLateral{
-  background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%); 
+  background-color: #E0D7F6;
+}
+
+.colorIconos{
+  color: black;
 }
 
