@@ -35,5 +35,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/Servicios', [ServiciosController::class, 'index'])
+Route::get('/Servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('Servicios');
