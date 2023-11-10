@@ -12,8 +12,15 @@ body {
 	overflow: hidden;
 }
 
+.iconosSidebar{
+	max-width: 75%;
+}
+
+.divRedondo{
+	border-radius: 10px;
+}
 //Color Variables
-$sidebar-background-color: #CD9FE5;
+$sidebar-background-color: #E0D7F6;
 $active-sidebar-link-color: #9259F5;
 $hover-sidebar-link-color: $active-sidebar-link-color;
 $active-link-color: #fff;
@@ -21,7 +28,7 @@ $tooltip-background-color: $sidebar-background-color;
 
 .sidebar-navigation {
 	min-height: 100vh;
-	width: 90px;
+	width: 100px;
 	background-color: $sidebar-background-color;
 	float: left;
     display: flex;
@@ -30,16 +37,16 @@ $tooltip-background-color: $sidebar-background-color;
 		color: white;
 
 		li {
-			padding: 28px 0;
+			padding: 20px 0;
 			cursor: pointer;
 			transition: all ease-out 120ms;
             display: flex; /* Centra verticalmente */
             align-items: center; /* Centra verticalmente */
-			
+			color: #9259F5;
 			i {
-				display: block;
-				font-size: 24px;
-				transition: all ease 450ms;
+				// display: block;
+				// font-size: 24px;
+				// transition: all ease 450ms;
 			}
 			
 			.tooltip {
@@ -49,11 +56,13 @@ $tooltip-background-color: $sidebar-background-color;
 				padding: 8px 15px;
 				border-radius: 3px;
 				margin-top: -26px;
-				left: 100px;
+				left: 110px;
 				opacity: 0;
 				visibility: hidden;
-				font-size: 13px;
+				font-size: 14px;
 				letter-spacing: .5px;
+				color: black;
+				font-weight:500;
 				
 				&:before {
 					content: '';
@@ -69,11 +78,11 @@ $tooltip-background-color: $sidebar-background-color;
 			}
 			
 			&:hover {
-				
+				background-color: #d7c6f3; 
 				.tooltip {
 					visibility: visible;
-					opacity: 1;
-				}
+					opacity: 9;
+				}	
 			}
 			
 			&.active {
@@ -81,7 +90,8 @@ $tooltip-background-color: $sidebar-background-color;
 				i {
 					color: $active-link-color;
 				}
-			}			
+			}
+
 		}
 	}
 }

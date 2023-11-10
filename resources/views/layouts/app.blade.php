@@ -76,27 +76,37 @@
             </div>
         </nav>
     </div>
-    <nav class="sidebar-navigation fondoNavLateral">
+    <nav class="sidebar-navigation">
             <ul>
                 <li class="active">
-                    <i class="fa fa-calendar"></i>
+                    <a href="#">
+                    <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Citas</span>
+                    </a>  
                 </li>
                 <li>
-                    <i class="fa fa-hdd-o"></i>
+                <img src="{{ asset('images/citahoy.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Mi Agenda hoy</span>
                 </li>
                 <li>
-                    <i class="fa fa-newspaper-o"></i>
+                    <img src="{{ asset('images/procedimientos.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Procedimientos</span>
                 </li>
                 <li>
-                    <i class="fa fa-print"></i>
+                <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Cuentas</span>
                 </li>
                 <li>
-                    <i class="fa fa-print"></i>
-                    <span class="tooltip">Usuarios</span>
+                    <a href="{{ url('/register') }}">
+                        <img src="{{ asset('images/perfil.png') }}" alt="Imagen" class="iconosSidebar">
+                        <span class="tooltip">Usuarios</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url('/register') }}">
+                    <img src="{{ asset('images/empleo.png') }}" alt="Imagen" class="iconosSidebar">
+                    <span class="tooltip">Empleados</span>
+                    </a>
                 </li>
             </ul>
     </nav>
