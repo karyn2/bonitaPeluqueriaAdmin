@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md fondoNav shadow-sm">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand fuente" href="{{ url('/home') }}">
                     BONITA - Sistema de Administración
                 </a>
@@ -80,7 +80,7 @@
             <ul>
                 <li class="active">
                     <a href="#">
-                    <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="iconosSidebar">
+                    <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="img-fluid iconosSidebar">
                     <span class="tooltip">Citas</span>
                     </a>  
                 </li>
@@ -103,16 +103,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/register') }}">
+                    <a href="{{ url('/personal/listado') }}">
                     <img src="{{ asset('images/empleo.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Empleados</span>
                     </a>
                 </li>
             </ul>
     </nav>
-        <main class="py-4 p-4">
-             @yield('content')
-        </main>
+    <main class="py-4 p-4 mrl" >
+            @yield('content')
+    </main>
 
 </body>
 </html>

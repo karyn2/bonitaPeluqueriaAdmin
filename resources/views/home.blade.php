@@ -39,7 +39,7 @@
         </div>
         <div class="col-sm-6 col-md-4 p-4">
             <div class="card cuadro">
-                <a href="">
+                <a href="{{ url('/register') }}">
                     <img src="{{ asset('images/perfil.png') }}" alt="Imagen">
                     <b class="fuenteEtiquetas">Usuarios Sistema</b>
                 </a>
@@ -47,7 +47,7 @@
         </div>
         <div class="col-sm-6 col-md-4 p-4">
             <div class="card cuadro">
-                <a href="">
+                <a href="{{ url('/personal/listado') }}">
                     <img src="{{ asset('images/empleo.png') }}" alt="Imagen">
                     <b class="fuenteEtiquetas">Personal</b>
                 </a>

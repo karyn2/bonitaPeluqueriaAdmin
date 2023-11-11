@@ -8,12 +8,16 @@
 }
 
 body {
-	background-color: #F5F6F8;
+	background-color: #E3E2E7;
 	overflow: hidden;
 }
 
 .iconosSidebar{
 	max-width: 75%;
+}
+
+.mrl{
+	margin-left: 3%;
 }
 
 .divRedondo{
@@ -31,7 +35,7 @@ $tooltip-background-color: $sidebar-background-color;
 	width: 100px;
 	background-color: $sidebar-background-color;
 	float: left;
-    display: flex;
+    display:flex;
 	
 	ul {
 		color: white;
