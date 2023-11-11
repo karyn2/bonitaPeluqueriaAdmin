@@ -110,9 +110,9 @@
                 </li>
             </ul>
     </nav>
-    <main class="py-4 p-4 mrl" >
-            @yield('content')
-    </main>
+        <main class="py-4 p-4">
+             @yield('content')
+        </main>
 
 </body>
 </html>

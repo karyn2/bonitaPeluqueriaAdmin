@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonalController;
+use Illuminate\Support\Facades\Auth;
+use App\HTTP\Controllers\ServiciosController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,3 +90,5 @@ Route::get('/personal/crear_registro', [PersonalController::class, 'form_registr
 
 Route::post('/personal/registrar', [PersonalController::class, 'registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_personal');
+Route::get('/Servicios/listar', [ServiciosController::class, 'index'])
+->middleware(['auth', 'verified'])->name('Servicios');
