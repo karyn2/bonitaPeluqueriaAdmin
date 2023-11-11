@@ -26,7 +26,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Rutas citas administrador
-
 Route::get('/citas', [CitasAdminController::class, 'index'])->name('listaCitas');
 
 
