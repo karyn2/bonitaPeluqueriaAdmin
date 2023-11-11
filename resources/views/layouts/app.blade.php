@@ -89,8 +89,10 @@
                     <span class="tooltip">Mi Agenda hoy</span>
                 </li>
                 <li>
+                    <a href="{{ route('servicios') }}">
                     <img src="{{ asset('images/procedimientos.png') }}" alt="Imagen" class="iconosSidebar">
-                    <span class="tooltip">Procedimientos</span>
+                    <span class="tooltip">Servicios</span>
+                    </a>
                 </li>
                 <li>
                 <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">
