@@ -79,9 +79,9 @@
     <nav class="sidebar-navigation">
             <ul>
                 <li class="active">
-                    <a href="#">
+                    <a href="{{ route('listaCitas') }}">
                     <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="img-fluid iconosSidebar">
-                    <span class="tooltip">Citas</span>
+                        <span class="tooltip">Citas</span>
                     </a>  
                 </li>
                 <li>
