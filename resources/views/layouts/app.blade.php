@@ -79,9 +79,9 @@
     <nav class="sidebar-navigation">
             <ul>
                 <li class="active">
-                    <a href="#">
+                    <a href="{{ route('listaCitas') }}">
                     <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="img-fluid iconosSidebar">
-                    <span class="tooltip">Citas</span>
+                        <span class="tooltip">Citas</span>
                     </a>  
                 </li>
                 <li>
@@ -89,8 +89,10 @@
                     <span class="tooltip">Mi Agenda hoy</span>
                 </li>
                 <li>
+                    <a href="{{ route('servicios') }}">
                     <img src="{{ asset('images/procedimientos.png') }}" alt="Imagen" class="iconosSidebar">
-                    <span class="tooltip">Procedimientos</span>
+                    <span class="tooltip">Servicios</span>
+                    </a>
                 </li>
                 <li>
                 <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-sm-6 col-md-4 p-4">
             <div class="card cuadro ">
-                <a href="">
+                <a href="/citas/listar">
                     <img src="{{ asset('images/evento2.png') }}" alt="Imagen">
                     <b class="fuenteEtiquetas">Citas</b>
                 </a>
@@ -21,9 +21,9 @@
         </div>
         <div class="col-sm-6 col-md-4 p-4">
             <div class="card cuadro">
-                <a href="">
+                <a href="{{ url('/servicios/listar') }}">
                     <img src="{{ asset('images/procedimientos.png') }}" alt="Imagen">
-                    <b class="fuenteEtiquetas">Procedimientos</b>
+                    <b class="fuenteEtiquetas">Servicios</b>
                 </a>
             </div>
         </div>
