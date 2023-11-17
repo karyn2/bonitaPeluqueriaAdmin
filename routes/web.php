@@ -12,7 +12,7 @@ use App\HTTP\Controllers\ServiciosController;
 
 
 
-
+use App\Http\Controllers\CuentasController;
 
 
 
@@ -72,16 +72,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/citas/listar', [CitasAdminController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('listaCitas');
 
+//Ruta cuentas
+Route::get('/cuentas/listar', [CuentasController::class, 'index'])
+->middleware(['auth', 'verified'])->name('listaCuentas');
 
+Route::get('/cuentas/crear_registro', [CuentasController::class, 'form_registro_ingreso'])
+->middleware(['auth', 'verified'])->name('crear_ingreso');
 
-
-
-
-
-
-
-
-
+Route::post('/cuentas/registrar', [CuentasController::class, 'registrar'])
+->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
 
 
 
