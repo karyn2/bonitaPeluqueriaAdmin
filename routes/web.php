@@ -71,7 +71,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Rutas citas administrador
 Route::get('/citas/listar', [CitasAdminController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('listaCitas');
-
 //Ruta cuentas
 Route::get('/cuentas/listar', [CuentasController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('listaCuentas');
@@ -79,8 +78,9 @@ Route::get('/cuentas/listar', [CuentasController::class, 'index'])
 Route::get('/cuentas/crear_registro', [CuentasController::class, 'form_registro_ingreso'])
 ->middleware(['auth', 'verified'])->name('crear_ingreso');
 
-Route::post('/cuentas/registrar', [CuentasController::class, 'registrar'])
+Route::post('/cuentas/registrar', [CuentasController::class, 'registrar_ingreso'])
 ->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
+
 
 
 

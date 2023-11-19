@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('ingresos', function (Blueprint $table) {
-            $table->string('id_ingreso', 10)->primary();
+            $table->id('id_ingresos');
             $table->timestamp('fecha_pago');
             $table->decimal('pago',15,4);
             $table->string('fk_id_procedimiento', 3);
