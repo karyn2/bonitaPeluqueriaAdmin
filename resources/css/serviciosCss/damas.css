@@ -1,0 +1,129 @@
+
+.bodyDamas{
+    margin-top: 5%;
+}
+
+.degradarPalabra{
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+
+  .animated-button {
+    display: flex; /* Cambiamos a flex para centrar el contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    width: 160px;
+    height: 50px;
+    background-color: #D8B1F1;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .animated-button:hover {
+    background-color: black; /* Color al pasar el mouse por encima */
+    color: white;
+  }
+
+  .animated-button:active {
+    background-color: #9368C2; /* Color al hacer clic */
+  }
+
+.botonIconos{
+    color: #D8B1F1;
+    font-size: 1.8rem;
+    padding: 10px 20px;
+    position: relative; 
+}
+
+
+.botonIconos:hover i.fas {
+    color: black; 
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+
+.botonIconos:hover::after {
+    content: attr(data-title); /* Muestra el contenido del atributo data-title */
+    position: absolute;
+    top: 10px; /* Ajusta la posición del texto adicional */   
+    right: 45%;
+    transform: translateX(-50%);
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    color: black; /* Cambia el color del texto adicional */
+    font-size: 16px; /* Ajusta el tamaño del texto adicional */
+    padding: 5px 10px; /* Ajusta el padding del texto adicional */
+    border-radius: 5px; /* Ajusta el radio de los bordes del texto adicional */
+    white-space: nowrap; /* Evita que el texto adicional se ajuste automáticamente */
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.3s ease; /* Agrega una transición para suavizar la aparición */
+  }
+  
+  .botonIconos:hover::after {
+    opacity: 1; /* Muestra el texto adicional al hacer hover */
+  }
+
+ 
+  /* Estilo para el efecto hover en el icono de WhatsApp */
+.whatsapp-icon:hover i{
+    color: black; 
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    border-radius: 5px;
+    padding: 10px 10px;    
+}
+
+.bienvenida{
+  color: white;
+  font-size: 60px;
+  font-family: 'Pragati Narrow';
+}
+
+.letraMediana{
+  color: white;
+  font-size: 40px;
+  font-family: 'Pragati Narrow';
+}
+
+.contenido {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.textBlanco{
+    color:whitesmoke;
+    font-size: 17px;
+    text-align: justify;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.textBlanco2{
+    color:whitesmoke;
+    font-size: 28px;
+    text-align: left;
+    margin-left: 20%;
+    margin-right: 10%;
+}
+
+
+.rounded-image {
+    margin-top: 5%;
+    border-radius: 10%;
+}
+
+.hover-zoom {
+    transition: transform 0.3s ease; /* Agregar una transición suave */
+  }
+  
+  .hover-zoom:hover {
+    transform: scale(1.1); /* Escalar la imagen al 110% en el hover */
+  }

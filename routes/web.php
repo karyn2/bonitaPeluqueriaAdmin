@@ -34,7 +34,7 @@ use App\HTTP\Controllers\ServiciosController;
 
 
 //ANGELA 36
-
+use App\HTTP\Controllers\PresentacionServiciosController;
 
 
 
@@ -116,6 +116,8 @@ Route::get('/personal/crear_registro', [PersonalController::class, 'form_registr
 Route::post('/personal/registrar', [PersonalController::class, 'registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_personal');
 
+Route::get('/inicio', [PresentacionServiciosController::class, 'index'])->name('bonita_inicio');
+Route::get('/servicios/damas', [PresentacionServiciosController::class, 'damas'])->name('bonita_damas');
 
 
 

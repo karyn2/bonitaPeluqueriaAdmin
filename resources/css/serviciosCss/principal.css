@@ -1,0 +1,58 @@
+
+body{
+    background-color: black;
+}
+
+.letrasBlancas{
+    color:   black ;
+    font-size: 24px;
+    padding-left: 15px;
+}
+
+.fondoNav{
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+}
+
+/* Estilos para la barra de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Asegura que la barra de navegación esté por encima de otros elementos */
+  }
+
+  .letraMediana{
+    color: white;
+    font-size: 40px;
+    font-family: 'Pragati Narrow';
+  }
+
+     
+.botonFooter{
+    color: #D8B1F1;
+    font-size: 2.5rem;
+    padding: 10px 20px;
+    position: relative; 
+  }
+
+    /* Estilo para el efecto hover en el icono de WhatsApp */
+.whatsapp-icon:hover i{
+    color: black; 
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    border-radius: 5px;
+    padding: 10px 10px;    
+}
+
+/* Clase para ocultar la barra de navegación en dispositivos pequeños */
+.navbar-collapse {
+    display: none;
+}
+
+/* Clase para mostrar la barra de navegación en dispositivos pequeños */
+.navbar-collapse.show {
+    display: block;
+}
+
+
+  
