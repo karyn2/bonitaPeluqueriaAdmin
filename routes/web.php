@@ -89,8 +89,8 @@ Route::get('/citas/listar', [CitasAdminController::class, 'index'])
 //VICTOR 88
 Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('servicios');
-
-
+Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
+->middleware(['auth', 'verified'])->name('form_registrar_servicio');
 
 
 

@@ -11,9 +11,9 @@
                         <h4>Lista de Servicios</h4>
                     </div>
                     <div class="col-md-6 text-end">
-                        <button class="btn btn-primary float-end">
-                            <i class="bi bi-plus"></i> Registrar
-                        </button>
+                        <a href="{{route('form_registrar_servicio')}}"  class="btn btn-primary float-end">
+                            <i class="bi bi-plus"></i> Registrar Servicio
+                        </a>
                     </div>
                 </div>
             </div>
