@@ -347,10 +347,6 @@
 <script>
        function mostrarContenido(idContenido) {
 
-         // Oculta el div base
-         var base = document.getElementById('contenido1');
-        base.classList.remove('visible');
-
         // Oculta todos los contenidos
         var contenidos = document.getElementsByClassName('contenido');
         for (var i = 0; i < contenidos.length; i++) {

@@ -20,7 +20,8 @@ class UsuarioSeeder extends Seeder
         $datos = [
             ['name' => 'Angela Ceron',
             'email' => 'karynaceron@gmail.com',
-            'password' => Hash::make('angela1234')
+            'password' => Hash::make('angela1234'),
+            'role' => 'admin'
             ]
         ];
         DB::table('users')->insert($datos);

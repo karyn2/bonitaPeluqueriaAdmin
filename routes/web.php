@@ -107,8 +107,15 @@ Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 
 //ANGELA 107
 //PERSONAL
-Route::get('/personal/listado', [PersonalController::class, 'index'])
-->middleware(['auth', 'verified'])->name('listado_personal');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // Rutas para administradores
+    Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
+});
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+    // Rutas para usuarios normales
+    Route::get('/user', 'UserController@index');
+});
 
 Route::get('/personal/crear_registro', [PersonalController::class, 'form_registro_personal'])
 ->middleware(['auth', 'verified'])->name('crear_personal');
