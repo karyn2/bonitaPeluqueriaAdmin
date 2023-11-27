@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Servicios')
+@section('title', 'Egresos')
 
 @section('content')
     <div class="container">
@@ -8,34 +8,40 @@
             <div class="card-header" style="background-color: #f8f9fa;">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Lista de Servicios</h4>
+                        <h4>Lista de Egresos</h4>
                     </div>
                     <div class="col-md-6 text-end">
-                        <a href="{{route('form_registrar_servicio')}}"  class="btn btn-primary float-end">
-                            <i class="bi bi-plus"></i> Registrar Servicio
+                        <a href="{{route('form_registrar_egreso')}}"  class="btn btn-primary float-end">
+                            <i class="bi bi-plus"></i> Registrar Egreso
                         </a>
                     </div>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive" style="max-height: 500px;">
-                    <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <table id="egresos" class="table table-striped table-bordered" style="width:100%">
                         <thead style="background-color: #f8f9fa;">
                             <tr>
                                 <th>#</th>
-                                <th>Tipo de Procedimiento</th>
-                                <th>Procedimiento</th>
-                                <th>Precio</th>
-                                <th>Opción</th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Fecha y Hora</th>
+                                <th>Realizó</th>
+                                <th>Recibió</th>
+                                <th>Monto</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
-                            @forelse ($servicios as $i => $s)
+                            @forelse ($egresos as $i => $s)
                                 <tr style="background-color: #fff;" onmouseover="this.style.backgroundColor='#f8f9fa';" onmouseout="this.style.backgroundColor='#fff';">
                                     <td>{{ $i + 1 }}</td>
                                     <td>{{ $s->nombre_tipo }}</td>
-                                    <td>{{ $s->nombre_procedimiento }}</td>
-                                    <td>{{ $s->precio }}</td>
+                                    <td>{{ $s->descripcion_egreso }}</td>
+                                    <td>{{ $s->fecha_hora }}</td>
+                                    <td>{{ $s->name }}</td>
+                                    <td>{{ $s->a_quien_se_dio }}</td>
+                                    <td>{{ $s->valor }}</td>
                                     <td style="padding: 0.5rem;">
                                         <button class="btn btn-warning btn-sm" style="margin-right: 0.5rem;">
                                             <i class="bi bi-pencil"></i>
@@ -47,7 +53,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="5">No hay servicios disponibles</td>
+                                    <td colspan="5">No hay egresos disponibles</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -74,7 +80,7 @@
 <!-- Inicializar DataTables -->
 <script>
     $(document).ready(function() {
-        $('#example').DataTable({
+        $('#egresos').DataTable({
             language: {
                 processing: "Procesando...",
                 search: "Buscar:",

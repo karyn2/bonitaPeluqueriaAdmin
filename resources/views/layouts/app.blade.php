@@ -81,7 +81,7 @@
                     <a href="{{ route('listaCitas') }}">
                     <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="img-fluid iconosSidebar">
                         <span class="tooltip">Citas</span>
-                    </a>  
+                    </a>
                 </li>
                 <li>
                 <img src="{{ asset('images/citahoy.png') }}" alt="Imagen" class="iconosSidebar">
@@ -94,8 +94,10 @@
                     </a>
                 </li>
                 <li>
-                <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">
-                    <span class="tooltip">Cuentas</span>
+                    <a href="{{ route('listaCuentas') }}">
+                        <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">
+                        <span class="tooltip">Cuentas</span>
+                    </a>
                 </li>
                 <li>
                     <a href="{{ url('/register') }}">
