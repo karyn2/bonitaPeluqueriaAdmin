@@ -20,7 +20,7 @@ use App\HTTP\Controllers\ServiciosController;
 
 
 //VICTOR 22
-
+use App\Http\Controllers\EgresosController;
 
 
 
@@ -91,9 +91,13 @@ Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('servicios');
 Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_servicio');
-
-
-
+//Egresos
+Route::get('/egresos', [EgresosController::class, 'index'])
+->middleware(['auth', 'verified'])->name('egresos');
+Route::get('/egresos/listar', [EgresosController::class, 'list'])
+->middleware(['auth', 'verified'])->name('listar_egresos');
+Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form_registrar'])
+->middleware(['auth', 'verified'])->name('form_registrar_egreso');
 
 
 
