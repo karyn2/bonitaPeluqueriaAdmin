@@ -40,9 +40,6 @@ class PersonalController extends Controller
             $personal->save();
             return redirect()->route('listado_personal');
         } catch (QueryException $e) {
-            // Captura la excepción y maneja el error
-            //return redirect()->route('pagina_de_error')->with('error', $e->getMessage());
-            //mostrar el error y exito en la pagina de lsitado 
             return redirect()->route('listado_personal');
         }
     }

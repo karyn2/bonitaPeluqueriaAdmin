@@ -6,7 +6,28 @@
 </div>
 
 <div class="bodyDamas text-center text-white">
-   
+<div class=" row ">
+        <div class="col-md-6 mt-4">
+            <img src=" {{ asset('images/img/peinado1.jfif') }}" alt="Damas" width="100%" class="rounded-image hover-zoom">
+        </div>
+        <div class="col-md-6 text-center text-white">
+            <br>
+            <p class="textBlanco">
+                ¡Bienvenida a nuestro exclusivo mundo de belleza y estilo para damas! En nuestra 
+                peluquería, no solo creamos cortes de cabello, sino que esculpimos obras maestras 
+                que reflejan tu personalidad y resaltan tu elegancia única. <br>
+                 Nuestro equipo de estilistas 
+                apasionados está dedicado a transformar cada hebra de tu cabello en una declaración de 
+                moda audaz. Desde cortes vanguardistas que marcan tendencia hasta peinados clásicos que 
+                nunca pasan de moda, te brindamos un abanico de opciones que harán que te sientas radiante 
+                en cada ocasión. Permítenos mimarte con tratamientos de lujo, colores deslumbrantes y un 
+                servicio que te hará sentir como la reina que eres. Entra a nuestro santuario de estilo y 
+                déjanos realzar tu belleza interior y exterior de maneras que nunca imaginaste. Tu cabello, 
+                tu estilo, tu esencia: aquí en nuestra peluquería, todo gira en torno a ti.
+                
+            </p>
+        </div>
+    </div>
     <h1 class="mt-4 degradarPalabra">SERVICIOS</h1>
     <br><br>
     <div class="row">

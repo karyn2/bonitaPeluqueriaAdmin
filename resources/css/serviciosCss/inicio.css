@@ -63,7 +63,6 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  display: inline-block;
 }
 
 
@@ -150,7 +149,7 @@
 
 .fixed-top {
     position: fixed;
-    top: 20%;
+    top: 75%;
     right: 0;
   }
   
@@ -162,6 +161,7 @@
     flex-direction: column;
     padding: 20px;
   }
+
 
 
 

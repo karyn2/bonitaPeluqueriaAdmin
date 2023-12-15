@@ -35,7 +35,7 @@ use App\Http\Controllers\EgresosController;
 
 //ANGELA 36
 use App\HTTP\Controllers\PresentacionServiciosController;
-
+use App\HTTP\Controllers\CitasController;
 
 
 
@@ -56,9 +56,9 @@ use App\HTTP\Controllers\PresentacionServiciosController;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Auth::routes();
 
@@ -126,16 +126,14 @@ Route::get('/personal/crear_registro', [PersonalController::class, 'form_registr
 Route::post('/personal/registrar', [PersonalController::class, 'registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_personal');
 
-Route::get('/inicio', [PresentacionServiciosController::class, 'index'])->name('bonita_inicio');
+Route::get('/', [PresentacionServiciosController::class, 'index'])->name('bonita_inicio');
 Route::get('/servicios/damas', [PresentacionServiciosController::class, 'damas'])->name('bonita_damas');
+Route::get('/servicios/caballeros', [PresentacionServiciosController::class, 'caballeros'])->name('bonita_caballeros');
+Route::get('/servicios/maquillaje', [PresentacionServiciosController::class, 'maquillaje'])->name('bonita_maquillaje');
 
-
-
-
-
-
-
-
+Route::get('/servicios/citas', [CitasController::class, 'citas'])->name('bonita_citas');
+Route::post('/citas/registrar', [CitasController::class, 'form_reg_cita'])->name('bonita_citas_registrar');
+Route::post('/citas/validar_disponibilidad', [CitasController::class, 'validarDisponibilidad'])->name('bonita_citas_disponibilidad');
 
 
 

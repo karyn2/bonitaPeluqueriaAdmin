@@ -1,0 +1,70 @@
+
+@font-face {
+    font-family: 'Pragati Narrow';
+    src: url('/assets/fuentes/PragattiNavarrow-Regular.ttf') format('truetype');
+  }
+
+.bodyDamas{
+    margin-top: 6%;
+    font-family: 'Pragati Narrow';
+}
+
+.formCita{
+    color: white;
+}
+
+.custom-input {
+  background-color: black !important;
+  color: white !important;
+  border: 2px solid;
+  border-color: #bc97d4; 
+  border-radius: 5px;
+  padding: 10px;
+  }
+
+  .degradarPalabra{
+    color: whitesmoke;
+    font-size: 35px;
+    font-family: 'Pragati Narrow';
+
+  }
+
+  .btnGuardar{
+    background-image:radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);;
+    color:black;
+    padding: 10px 50px 10px 50px;
+    border-radius: 8px;
+    border: none;
+  }
+  .btnGuardar:hover {
+    color: black; 
+    background-image: radial-gradient(circle at 10.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+    padding: 10px 50px 10px 50px;
+    border-radius: 8px;
+    border: none;    
+}
+
+::placeholder {
+  color:#DCD6D4;
+}
+
+input[type="date"] {
+  background-color: black;
+  color: white;
+  border:2px solid;
+  border-color:#bc97d4; 
+  border-radius: 5px;
+  padding: 10px;
+  background: black;
+}
+
+/* Estilo para el icono del campo de fecha */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); 
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

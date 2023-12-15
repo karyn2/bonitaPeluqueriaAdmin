@@ -50,4 +50,24 @@ class PresentacionServiciosController extends Controller
 
         return view ('presentacionServicios.damas', compact('cortes','colores','lavados','manos','maquillajes','tratamientos'));
     }
+
+    public function caballeros()
+    {
+        return view("presentacionServicios.caballeros");
+    }
+
+    public function maquillaje()
+    {
+        $manicure = DB::table('tipos_procedimiento')
+        ->join('procedimiento', 'tipos_procedimiento.id_tipo', '=', 'procedimiento.fk_id_tipo')
+        ->where('tipos_procedimiento.nombre_tipo', '=', 'Manicure')
+        ->get();
+
+        $maquillaje = DB::table('tipos_procedimiento')
+        ->join('procedimiento', 'tipos_procedimiento.id_tipo', '=', 'procedimiento.fk_id_tipo')
+        ->where('tipos_procedimiento.nombre_tipo', '=', 'Maquillaje')
+        ->get();
+
+        return view ('presentacionServicios.maquillaje', compact('manicure','maquillaje'));
+    }
 }

@@ -38,17 +38,17 @@
 
 
 <div class="contenedor mt-4">
-  <a href="damas" class="boton-imagen mt-4">
+  <a href="/servicios/damas" class="boton-imagen mt-4">
     <img src="{{ asset('images/img/dama3.png') }}" alt="">
     <span class="texto-superpuesto bienvenida "><b>DAMAS</b></span>
   </a>
 
-  <a href="caballeros" class="boton-imagen mt-4">
+  <a href="/servicios/caballeros" class="boton-imagen mt-4">
     <img src="{{ asset('images/img/hombre1.png') }}" alt="">
     <span class="texto-superpuesto bienvenida"> <B>CABALLEROS</B> </span>
   </a>
 
-  <a href="extras" class="boton-imagen mt-4">
+  <a href="/servicios/maquillaje" class="boton-imagen mt-4">
     <img src="{{ asset('images/img/unas2.png') }}" alt="">
     <span class="texto-superpuesto bienvenida">  <B>UÑAS Y MAQUILLAJE</B></span>
   </a>
@@ -78,7 +78,7 @@
 <br>
 <div class="contenedorFoto mt-4 boton-imagen2 text-center">
   <img src="{{ asset('images/img/bannerInstalacion.png') }}" alt="">
-  <span class="texto-superpuesto2 bienvenida "> <b>TENEMOS AMPLIAS INSTALACIONES PARA SU COMODIDAD</b></span>
+  <span class="texto-superpuesto2  "> <b>TENEMOS AMPLIAS INSTALACIONES PARA SU COMODIDAD</b></span>
 </div>
 
 

@@ -1,0 +1,27 @@
+.card {
+    height: 100%;
+}
+.textBlanco3{
+    color:black;
+    font-size: 17px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.textBlanco2{
+    color:whitesmoke;
+    font-size: 28px;
+    text-align: left;
+    margin-left: 16%;
+    margin-right: 4%;
+}
+
+.cardColor{
+    background-image: radial-gradient(circle at 67.5% 1.93%, #ffdcff 0, #ffcfff 16.67%, #ffbeff 33.33%, #e4abf1 50%, #bc97d4 66.67%, #9a86ba 83.33%, #7f77a2 100%);
+}
+
+.tamImagen{
+    width: 253px; 
+    height: 260px;
+}
