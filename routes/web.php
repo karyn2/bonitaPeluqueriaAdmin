@@ -86,7 +86,7 @@ Route::post('/cuentas/registrar', [CuentasController::class, 'registrar_ingreso'
 
 
 //VICTOR 88
-Route::get('/servicios/listar', [ServiciosController::class, 'index'])
+Route::get('/Servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('servicios');
 Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_servicio');

@@ -13,11 +13,12 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite(['resources/css/layout.css', 'resources/sass/layout.scss'])
     @vite(['resources/css/app.css', 'resources/css/inicio.css' ])
+    @vite(['resources/css/choices.css'])
 </head>
 <body>
     <div id="app">
@@ -116,6 +117,8 @@
         <main class="py-4 p-4">
              @yield('content')
         </main>
+
+    </div>
 
 </body>
 
