@@ -13,9 +13,20 @@
                     <div class="card-header text-center">{{ __('Registro Egresos') }}</div>
                     <div class="card-body">
 
-                        <form class="needs-validation" method="POST" novalidate action="{{ url('/egresos/crear') }}">
+                        <form id="myForm" class="needs-validation" method="POST" novalidate action="{{ url('/egresos/crear') }}">
                             @csrf
                             <div class="row mb-3">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="col-md-6 col-form-label " for="a_quien_se_dio">{{ __('A quien se dio:') }}</label>
+                                        <input type="text" name="a_quien_se_dio" id="a_quien_se_dio"
+                                            class="form-control @error('a_quien_se_dio') is-invalid @enderror">
+                                        @error('a_quien_se_dio')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <label for="mi_tipo_egreso" class="form-group col-md-6 col-form-label">{{ __('Tipo Egreso') }}</label>
@@ -34,16 +45,7 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-md-6 col-form-label " for="a_quien_se_dio">{{ __('A quien se dio:') }}</label>
-                                        <input type="text" name="a_quien_se_dio" id="a_quien_se_dio"
-                                            class="form-control @error('a_quien_se_dio') is-invalid @enderror">
-                                        @error('a_quien_se_dio')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
+
 
                             </div>
 
@@ -83,6 +85,8 @@
                             </div>
 
                         </form>
+
+
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

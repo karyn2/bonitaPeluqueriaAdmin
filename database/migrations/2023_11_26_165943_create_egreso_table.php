@@ -14,15 +14,15 @@ return new class extends Migration
     public function up()
     {
         Schema::create('tipos_egreso', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('nombre_tipo', 100)->nullable(false);
             $table->boolean('estado')->default(true)->nullable(false);
             $table->timestamps();
         });
 
         Schema::create('egreso', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('fk_tipo_egreso')->nullable(false);
+            $table->increments('id');
+            $table->unsignedInteger('fk_tipo_egreso')->nullable(false);
             $table->foreign('fk_tipo_egreso')
                   ->references('id')
                   ->on('tipos_egreso')
@@ -36,6 +36,7 @@ return new class extends Migration
                   ->nullable(false);
             $table->string('a_quien_se_dio')->nullable(false);
             $table->integer('valor')->nullable(false);
+            $table->boolean('estado')->default(true)->nullable(false);
             $table->timestamps();
         });
     }

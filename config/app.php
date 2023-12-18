@@ -28,7 +28,9 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    #'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'development'),
+
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +71,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    #'timezone' => 'UTC',
+    'timezone' => 'America/Bogota',
 
     /*
     |--------------------------------------------------------------------------

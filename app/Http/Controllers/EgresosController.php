@@ -50,9 +50,9 @@ class EgresosController extends Controller
             $egreso->a_quien_se_dio = $request->input('a_quien_se_dio');
             try {
                 $egreso->save();
-                return redirect()->route('egresos.list_Egreso'); #->with('success', 'Egreso registrado exitosamente')
+                return redirect()->route('listar_egresos')->with('success', 'Egreso registrado exitosamente');
             } catch (\Exception $e) {
-                return redirect()->route('form_registrar_egreso'); #->with('error', 'Error al registrar el egreso: ' . $e->getMessage())->withInput()
+                return redirect()->route('form_registrar_egreso')->with('error', 'Error al registrar el egreso: ' . $e->getMessage())->withInput()->with('toast_duration', 50000);
             }
         }
     }
