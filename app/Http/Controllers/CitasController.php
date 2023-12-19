@@ -13,7 +13,7 @@ class CitasController extends Controller
 {
     public function citas(){
 
-        $procedimiento = DB::table('tipos_procedimiento')->get(); 
+        $procedimiento = DB::table('tipos_procedimiento')->get();
         $fechaActual = now()->toDateString();
 
         return view("presentacionServicios.citas", compact('fechaActual', 'procedimiento'));
@@ -27,7 +27,7 @@ class CitasController extends Controller
 
         $fechaHoraSeleccionada = Carbon::createFromFormat('Y-m-d H:i', $fecha . ' ' . $hora);
         $horaActual = Carbon::now();
-        
+
         if ($fechaHoraSeleccionada->lt($horaActual)) {
             return response()->json(['disponible' => false, 'mensaje' => 'La hora seleccionada ya pasó.']);
         }
@@ -88,8 +88,8 @@ class CitasController extends Controller
                 $nombre, $correo, $celular, $fecha, $hora, $procedimiento
             ]);
 
-            return response()->json(['success' => 1, 'message' => 'Su cita ha sido registrada de manera exitosa, 
-            Nuestro personal se comunicará con usted un día antes para confirmar la cita o cancelarla, 
+            return response()->json(['success' => 1, 'message' => 'Su cita ha sido registrada de manera exitosa,
+            Nuestro personal se comunicará con usted un día antes para confirmar la cita o cancelarla,
             si desea cancelar la cita puede comunicarse a nuestro WhatsApp']);
         } catch (\Exception $e) {
             return response()->json(['success' => 0, 'message' => 'Error al agendar la cita : ' . $e->getMessage()]);

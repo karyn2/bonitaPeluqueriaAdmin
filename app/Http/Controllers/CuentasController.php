@@ -25,6 +25,13 @@ class CuentasController extends Controller
 
 
     public function registrar_ingreso(Request $request){
+
+        $request->validate([
+            'pago' => 'required|numeric',
+            'procedimiento' => 'required',
+            'personal' => 'required'
+        ]);
+
         try {
             $cuenta = new Cuentas();
             $cuenta->pago = floatval($request->input('pago'));
@@ -33,10 +40,7 @@ class CuentasController extends Controller
             $cuenta->save();
             return redirect()->route('listaCuentas');
         } catch (QueryException $e) {
-            // Captura la excepción y maneja el error
-            //return redirect()->route('pagina_de_error')->with('error', $e->getMessage());
-            //mostrar el error y exito en la pagina de lsitado
-           /*  return redirect()->route('listado_personal'); */
+
            echo $cuenta;
            echo $e;
         }
