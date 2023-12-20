@@ -13,7 +13,7 @@ class CitasController extends Controller
 {
     public function citas(){
 
-        $procedimiento = DB::table('tipos_procedimiento')->get();
+        $procedimiento = DB::table('procedimiento')->get();
         
         $fechaActual = now()->addDay()->toDateString();       
         return view("presentacionServicios.citas", compact('fechaActual', 'procedimiento'));

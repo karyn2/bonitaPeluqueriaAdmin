@@ -54,10 +54,10 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label control-label">Procedimiento a realizarse: </label>
-                <select name="procedimiento" class="form-select custom-input" id="procedimiento">
+                <select name="procedimiento" class="form-select custom-input choices" choices id="procedimiento">
                     <option value="" selected disabled>Seleccionar</option>
                     @foreach($procedimiento as $proc)
-                        <option value="{{ $proc->id_tipo }}">{{ $proc->nombre_tipo }}</option>
+                        <option value="{{ $proc->id_procedimiento }}">{{ $proc->nombre_procedimiento }}</option>
                     @endforeach
                 </select>
                 <div id="procedimiento-error" class="text-danger"></div>
@@ -155,6 +155,19 @@
             mensajesError[i].innerHTML = '';
         }
     }
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    function inicializarChoices() {
+        return new window.Choices('#procedimiento', {
+            maxItemCount: 5,
+            removeItemButton: true,
+            allowHTML: true,
+        });
+    }
+});
 
 </script>
 
