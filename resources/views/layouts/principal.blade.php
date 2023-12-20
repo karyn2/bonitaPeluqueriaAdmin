@@ -18,6 +18,7 @@
     @vite(['resources/css/serviciosCss/inicio.css', 'resources/css/serviciosCss/principal.css' ])
     @vite(['resources/css/serviciosCss/damas.css' ])
     @vite(['resources/css/serviciosCss/maquillaje.css' ])
+    @vite(['resources/css/choices.css'])
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
