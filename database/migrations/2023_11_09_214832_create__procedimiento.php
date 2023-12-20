@@ -14,18 +14,21 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Tipos_Procedimiento', function (Blueprint $table) {
-            $table->string('id_tipo', 3)->primary();
+
+            $table->increments('id_tipo');
             $table->string('nombre_tipo', 100)->nullable(false);
+            $table->boolean('estado')->default(true)->nullable(false);
             $table->timestamps();
         });
-        
+
         Schema::create('Procedimiento', function (Blueprint $table) {
-            $table->string('id_procedimiento', 3)->primary();
+            $table->increments('id_procedimiento');
             $table->string('nombre_procedimiento', 100)->nullable(false);
             $table->unsignedInteger('precio')->nullable(false);
-            $table->string('fk_id_tipo', 3)->nullable(false);  
+            $table->unsignedInteger('fk_id_tipo')->nullable(false);
+            $table->boolean('estado')->default(true)->nullable(false);
             $table->timestamps();
-        
+
             $table->foreign('fk_id_tipo')->references('id_tipo')->on('Tipos_Procedimiento');
         });
     }

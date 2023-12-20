@@ -13,27 +13,9 @@
                     <div class="card-header text-center">{{ __('Registro Egresos') }}</div>
                     <div class="card-body">
 
-                        <form class="needs-validation" method="POST" novalidate action="{{ url('/egresos/crear') }}">
+                        <form id="myForm" class="needs-validation" method="POST" novalidate action="{{ url('/egresos/crear') }}">
                             @csrf
                             <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="tipo_egreso"
-                                     class="col-md-6 col-form-label " >{{ __('Tipo Egreso') }}</label>
-                                    <select class="form-select @error('fk_id_tipo') is-invalid @enderror" name="fk_tipo_egreso"
-                                    id="fk_tipo_egreso" >
-                                        <option value="" disabled {{ old('fk_tipo_egreso') == '' ? 'selected' : '' }}>
-                                            Seleccione</option>
-                                        @foreach ($tipo_egreso as $tipo)
-                                            <option value="{{ $tipo->id }}"
-                                                {{ old('fk_tipo_egreso') == $tipo->id ? 'selected' : '' }}>
-                                                {{ $tipo->nombre_tipo }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('tipo_egreso')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -45,6 +27,25 @@
                                         @enderror
                                     </div>
                                 </div>
+
+                                <div class="col-md-6">
+                                    <label for="mi_tipo_egreso" class="form-group col-md-6 col-form-label">{{ __('Tipo Egreso') }}</label>
+                                    <select class="form-select choices @error('fk_tipo_egreso') is-invalid @enderror" name="fk_tipo_egreso" id="mi_tipo_egreso">
+                                        <option value="" {{ empty(old('fk_tipo_egreso')) ? 'selected' : '' }} disabled>
+                                            Seleccione
+                                        </option>
+                                        @foreach ($tipo_egreso as $tipo)
+                                            <option value="{{ $tipo->id }}" {{ old('fk_tipo_egreso') == $tipo->id ? 'selected' : '' }}>
+                                                {{ $tipo->nombre_tipo }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('fk_tipo_egreso')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+
 
                             </div>
 
@@ -84,6 +85,8 @@
                             </div>
 
                         </form>
+
+
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -99,4 +102,7 @@
         </div>
     </div>
 
+
 @endsection
+
+@vite(['resources\js\egreso.js'])

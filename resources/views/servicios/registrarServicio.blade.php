@@ -14,25 +14,12 @@
                     <div class="card-header text-center">{{ __('Registro Servicios') }}</div>
                     <div class="card-body">
 
-                        <form class="needs-validation" method="POST" novalidate action="{{ url('/servicios/crear') }}">
+                        <form id='formulario' class="needs-validation" method="POST" novalidate action="{{ url('/servicios/crear') }}">
                             @csrf
                             <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label for="id_procedimiento"
-                                        class="col-md-6 col-form-label ">{{ __('Identificación de Procedimiento') }}</label>
-                                    <input id="id_procedimiento" type="text"
-                                        class="form-control @error('id_procedimiento') is-invalid @enderror"
-                                        name="id_procedimiento" value="{{ old('id_procedimiento') }}" required
-                                        autocomplete="id_procedimiento" autofocus>
-                                    @error('id_procedimiento')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <label for="nombre_procedimiento"
-                                        class="col-md-4 col-form-label ">{{ __('Nombre Del Procedimiento') }}</label>
+                                        class="col-md-4 col-form-label ">{{ __('Nombre Procedimiento') }}</label>
                                     <input id="nombre_procedimiento" type="text"
                                         class="form-control @error('nombre_procedimiento') is-invalid @enderror"
                                         name="nombre_procedimiento" value="{{ old('nombre_procedimiento') }}" required
@@ -48,20 +35,21 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="precio" class="col-md-6 col-form-label ">{{ __('Precio') }}</label>
-                                    <input id="precio" type="number"
+                                    <input id="precio" type="text"
                                         class="form-control @error('precio') is-invalid @enderror" name="precio"
-                                        value="{{ old('precio') }}" required autocomplete="precio">
+                                        value="{{ old('precio') }}" required autocomplete="precio" >
                                     @error('precio')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="col-md-6">
                                     <label for="fk_id_tipo"
                                         class="col-md-4 col-form-label">{{ __('Tipo de Servicio') }}</label>
-                                    <select class="form-select @error('fk_id_tipo') is-invalid @enderror" name="fk_id_tipo"
-                                        id="fk_id_tipo">
+                                    <select class="form-select choices @error('fk_id_tipo') is-invalid @enderror"
+                                        name="fk_id_tipo" id="fk_id_tipo">
                                         <option value="" disabled {{ old('fk_id_tipo') == '' ? 'selected' : '' }}>
                                             Seleccione</option>
                                         @foreach ($tipo_procedimiento as $tipo)
@@ -77,12 +65,7 @@
                                         </span>
                                     @enderror
                                 </div>
-
                             </div>
-
-
-
-
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-5">
                                     <button type="submit" class="btn btn-primary">
@@ -91,9 +74,21 @@
                                 </div>
                             </div>
                         </form>
+                        <br>
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@vite(['resources\js\servicio.js'])
