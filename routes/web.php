@@ -71,7 +71,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Rutas citas administrador
 Route::get('/citas/listar', [CitasAdminController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('listaCitas');
-//Ruta cuentas
+Route::get('/citas/crear_registro', [CitasAdminController::class, 'form_registro_cita'])
+->middleware(['auth', 'verified'])->name('crear_cita');
+Route::post('/citas/crear_cita', [CitasAdminController::class, 'registrar_cita'])
+->middleware(['auth', 'verified'])->name('form_registrar_cita');
+//Ruta cuentass
 Route::get('/cuentas/listar', [CuentasController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('listaCuentas');
 
@@ -80,10 +84,6 @@ Route::get('/cuentas/crear_registro', [CuentasController::class, 'form_registro_
 
 Route::post('/cuentas/registrar', [CuentasController::class, 'registrar_ingreso'])
 ->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
-
-
-
-
 
 //VICTOR 88
 Route::get('/servicios/listar', [ServiciosController::class, 'index'])

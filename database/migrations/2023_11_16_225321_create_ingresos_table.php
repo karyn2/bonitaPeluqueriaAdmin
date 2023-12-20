@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id('id_ingresos');
             $table->timestamp('fecha_pago');
             $table->decimal('pago',15,4);
-            $table->string('fk_id_procedimiento', 3);
+            $table->unsignedInteger('fk_id_procedimiento', 3);
             $table->string('fk_identificacion',20);
             $table->foreign('fk_id_procedimiento')->references('id_procedimiento')->on('procedimiento');
             $table->foreign('fk_identificacion')->references('identificacion')->on('personal');

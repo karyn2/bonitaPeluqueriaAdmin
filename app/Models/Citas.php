@@ -19,4 +19,10 @@ class Citas extends Model
     ];
 
     public $timestamps = false; // Desactivar las marcas de tiempo
+
+    public function fkprocedimiento()
+    {
+        return $this->belongsTo(Procedimiento::class, 'procedimiento', 'id_procedimiento');
+    }
+
 }

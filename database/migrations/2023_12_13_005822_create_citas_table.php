@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('celular',30);
             $table->string('procedimiento',50);
             $table->primary('identificacion');
+
+            $table->foreign('procedimiento')->references('id_procedimiento')->on('procedimiento');
+
             $table->timestamps();
         });
     }
