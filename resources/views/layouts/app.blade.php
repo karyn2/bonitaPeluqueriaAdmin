@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Bonita Peluqueria') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -18,7 +18,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @vite(['resources/css/layout.css', 'resources/sass/layout.scss'])
-    @vite(['resources/css/app.css', 'resources/css/inicio.css' ])
+    @vite(['resources/css/app.css'])
     @vite(['resources/css/choices.css'])
 </head>
 <body>
@@ -81,14 +81,14 @@
             <ul>
                 <li class="active">
                     <a href="{{ route('listaCitas') }}">
-                    <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class="img-fluid iconosSidebar">
+                    <img src="{{ asset('images/evento2.png') }}" alt="Imagen" class=" iconosSidebar">
                         <span class="tooltip">Citas</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                 <img src="{{ asset('images/citahoy.png') }}" alt="Imagen" class="iconosSidebar">
                     <span class="tooltip">Mi Agenda hoy</span>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('servicios') }}">
                     <img src="{{ asset('images/procedimientos.png') }}" alt="Imagen" class="iconosSidebar">
@@ -96,9 +96,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('listaCuentas') }}">
+                    <a href="{{ route('contabilidad') }}">
                         <img src="{{ asset('images/contabilidad.png') }}" alt="Imagen" class="iconosSidebar">
-                        <span class="tooltip">Cuentas</span>
+                        <span class="tooltip">Contabilidad</span>
                     </a>
                 </li>
                 <li>

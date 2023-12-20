@@ -91,8 +91,8 @@ Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_servicio');
 //Egresos
-Route::get('/egresos', [EgresosController::class, 'index'])
-->middleware(['auth', 'verified'])->name('egresos');
+Route::get('/contabilidad', [EgresosController::class, 'index'])
+->middleware(['auth', 'verified'])->name('contabilidad');
 Route::get('/egresos/listar', [EgresosController::class, 'list'])
 ->middleware(['auth', 'verified'])->name('listar_egresos');
 Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form_registrar'])
@@ -112,7 +112,7 @@ Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form
 //PERSONAL
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Rutas para administradores
-    Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
+    //Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -120,6 +120,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     Route::get('/user', 'UserController@index');
 });
 
+Route::get('/personal/listado', [PersonalController::class, 'index'])
+->middleware(['auth', 'verified'])->name('listado_personal');
 Route::get('/personal/crear_registro', [PersonalController::class, 'form_registro_personal'])
 ->middleware(['auth', 'verified'])->name('crear_personal');
 
