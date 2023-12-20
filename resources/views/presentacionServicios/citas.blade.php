@@ -63,9 +63,9 @@
                 <div id="procedimiento-error" class="text-danger"></div>
             </div>
         </div>
-        <div id="errorMessage" class="text-danger"></div>
+        <!-- <div id="errorMessage" class="text-danger"></div>
 
-        <div id="exitMessage" class="text-info mt-4 text-center" style="font-size: 20px;"></div>
+        <div id="exitMessage" class="text-info mt-4 text-center" style="font-size: 20px;"></div> -->
 
         <div class=" mt-4 text-center">
             <button type="submit" id="submitButton" onclick="validarFormulario()" class="btnGuardar">Enviar</button>
@@ -128,7 +128,6 @@
                  _token: csrfToken,},
             dataType: 'json',
             success: function(response) {
-                document.getElementById('submitButton').disabled = false
                 if (response.disponible) { 
                     document.getElementById('citaForm').submit();
                 } else {
@@ -138,6 +137,7 @@
                     mostrarError('hora-error', 'La hora seleccionada no está disponible. Por favor, elige otra.');
                 }
                 }
+                document.getElementById('submitButton').disabled = false
             },
             error: function() {
                 console.log('Error al realizar la solicitud Ajax')

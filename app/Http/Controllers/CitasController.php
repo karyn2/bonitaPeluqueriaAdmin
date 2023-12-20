@@ -14,8 +14,8 @@ class CitasController extends Controller
     public function citas(){
 
         $procedimiento = DB::table('tipos_procedimiento')->get(); 
-        $fechaActual = now()->toDateString();
-
+        
+        $fechaActual = now()->addDay()->toDateString();       
         return view("presentacionServicios.citas", compact('fechaActual', 'procedimiento'));
     }
 
@@ -27,9 +27,8 @@ class CitasController extends Controller
 
         $fechaHoraSeleccionada = Carbon::createFromFormat('Y-m-d H:i', $fecha . ' ' . $hora);
         $horaActual = Carbon::now();
-        
         if ($fechaHoraSeleccionada->lt($horaActual)) {
-            return response()->json(['disponible' => false, 'mensaje' => 'La hora seleccionada ya pasó.']);
+            return response()->json(['disponible' => false]);
         }
 
         $citaExistente = DB::table('citas')

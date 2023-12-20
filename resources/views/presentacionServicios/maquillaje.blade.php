@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row justify-content-center align-items-center g-2">
-    <img src=" {{ asset('images/img/maquillaje1.png') }}" alt="Damas" width="90%">
+    <img src=" {{ asset('images/img/banerUM.png') }}" alt="Damas" width="90%">
 </div>
 <div class="text-center text-white">
     <div class=" row mt-2 ">
