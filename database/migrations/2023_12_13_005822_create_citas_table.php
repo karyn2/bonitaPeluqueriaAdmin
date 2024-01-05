@@ -20,10 +20,10 @@ return new class extends Migration
             $table->date('fecha');
             $table->string('hora',20);
             $table->string('celular',30);
-            $table->string('procedimiento',50);
+            $table->unsignedInteger('procedimiento')->nullable(false);
             $table->primary('identificacion');
 
-            $table->foreign('procedimiento')->references('id_procedimiento')->on('procedimiento');
+            $table->foreign('procedimiento')->references('id_procedimiento')->on('procedimiento'); 
 
             $table->timestamps();
         });
