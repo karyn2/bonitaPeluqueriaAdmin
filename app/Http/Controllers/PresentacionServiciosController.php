@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Illuminate\Database\QueryException;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+
 
 class PresentacionServiciosController extends Controller
 {
@@ -70,4 +76,30 @@ class PresentacionServiciosController extends Controller
 
         return view ('presentacionServicios.maquillaje', compact('manicure','maquillaje'));
     }
+
+    public function RegistroCliente(){
+
+        return view('presentacionServicios.registroCliente');
+    }
+
+    public function registrar(Request $request)
+    {
+        try {
+            $usuario = new User();
+            $usuario->identificacion = $request->input('identificacion');
+            $usuario->name = $request->input('name');
+            $usuario->email = $request->input('email');
+            $usuario->password = Hash::make($request['password']);
+            $usuario->celular = $request->input('celular');
+            $usuario->role = "user";
+            $usuario->save();
+
+            // Iniciar sesión automáticamente después del registro
+            Auth::login($usuario);
+            return redirect()->route('bonita_inicio')->with('success', 'Su cuenta ha sido creada de manera exitosa', 'ÉXITO');
+        } catch (ValidationException $e) {
+            return redirect()->route('bonita_registrarme')->with('danger', 'Ha ocurrido un error en el registro', 'ERROR');
+        }
+    }
+
 }

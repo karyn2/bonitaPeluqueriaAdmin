@@ -64,7 +64,7 @@ Auth::routes();
 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 
 //DANIEL 70
@@ -112,16 +112,19 @@ Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form
 //PERSONAL
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Rutas para administradores
-    //Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
+    Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
-    // Rutas para usuarios normales
-    Route::get('/user', 'UserController@index');
+    Route::get('/servicios/citas', [CitasController::class, 'citas'])->name('bonita_citas');
+    Route::post('/citas/registrar', [CitasController::class, 'form_reg_cita'])->name('bonita_citas_registrar');
+    Route::post('/citas/validar_disponibilidad', [CitasController::class, 'validarDisponibilidad'])->name('bonita_citas_disponibilidad');
 });
 
-Route::get('/personal/listado', [PersonalController::class, 'index'])
-->middleware(['auth', 'verified'])->name('listado_personal');
+
+// Route::get('/personal/listado', [PersonalController::class, 'index'])
+// ->middleware(['auth', 'verified'])->name('listado_personal');
 Route::get('/personal/crear_registro', [PersonalController::class, 'form_registro_personal'])
 ->middleware(['auth', 'verified'])->name('crear_personal');
 
@@ -133,9 +136,10 @@ Route::get('/servicios/damas', [PresentacionServiciosController::class, 'damas']
 Route::get('/servicios/caballeros', [PresentacionServiciosController::class, 'caballeros'])->name('bonita_caballeros');
 Route::get('/servicios/maquillaje', [PresentacionServiciosController::class, 'maquillaje'])->name('bonita_maquillaje');
 
-Route::get('/servicios/citas', [CitasController::class, 'citas'])->name('bonita_citas');
-Route::post('/citas/registrar', [CitasController::class, 'form_reg_cita'])->name('bonita_citas_registrar');
-Route::post('/citas/validar_disponibilidad', [CitasController::class, 'validarDisponibilidad'])->name('bonita_citas_disponibilidad');
+
+
+Route::get('/servicios/registro', [PresentacionServiciosController::class, 'RegistroCliente'])->name('bonita_registrarme');
+Route::post('/servicios/registrar', [PresentacionServiciosController::class, 'registrar'])->name('form_registrar');
 
 
 

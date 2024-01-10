@@ -10,19 +10,18 @@ class Citas extends Model
     protected $table = 'citas'; // Nombre de la tabla en la base de datos
 
     protected $fillable = [
-        'nombre',
-        'correo',
-        'celular',
+        'identificacion',
         'fecha',
         'hora',
-        'procedimiento',
+        'id_procedimiento',
+        'estado_cita'
     ];
 
     public $timestamps = false; // Desactivar las marcas de tiempo
 
     public function fkprocedimiento()
     {
-        return $this->belongsTo(Procedimiento::class, 'procedimiento', 'id_procedimiento');
+        return $this->belongsTo(Procedimiento::class, 'Procedimiento', 'id_procedimiento');
     }
 
 }

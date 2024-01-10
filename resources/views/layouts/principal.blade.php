@@ -45,8 +45,29 @@
             <li class="nav-item">
                 <a class="nav-link letrasBlancas" href="/servicios/citas">Citas</a>
             </li>
+            <li class="nav-item dropdown">
+                @guest
+                    <a class="nav-link dropdown-toggle letrasBlancas" data-bs-toggle="dropdown">Tu cuenta</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/login">Inicia Sesión</a></li>
+                        <li><a class="dropdown-item" href="/servicios/registro">Regístrate</a></li>
+                    </ul>
+                @else
+                    <a class="nav-link dropdown-toggle letrasBlancas" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/perfil">Ver Perfil</a></li>
+                        <li>
+                            <form method="POST" action="/logout">
+                                @csrf
+                                <button type="submit" class="dropdown-item">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                    </ul>
+                @endguest
+            </li>
         </ul>
     </div>
+
 </nav>
 
 <div class="container mt-4 ">

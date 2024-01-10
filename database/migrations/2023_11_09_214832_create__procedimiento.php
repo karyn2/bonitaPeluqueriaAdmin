@@ -14,7 +14,6 @@ return new class extends Migration
     public function up()
     {
         Schema::create('Tipos_Procedimiento', function (Blueprint $table) {
-
             $table->increments('id_tipo');
             $table->string('nombre_tipo', 100)->nullable(false);
             $table->boolean('estado')->default(true)->nullable(false);

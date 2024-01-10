@@ -7,16 +7,18 @@ use App\Models\Citas;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class CitasController extends Controller
 {
     public function citas(){
 
-        $procedimiento = DB::table('procedimiento')->get();
-        
-        $fechaActual = now()->addDay()->toDateString();       
-        return view("presentacionServicios.citas", compact('fechaActual', 'procedimiento'));
+        $procedimiento = DB::table('procedimiento')->get();     
+        $fechaActual = now()->addDay()->toDateString();    
+         // Obtener el usuario logueado
+        $usuario = Auth::user();   
+        return view("presentacionServicios.citas", compact('fechaActual', 'procedimiento', 'usuario'));
     }
 
 
@@ -46,18 +48,13 @@ class CitasController extends Controller
 
     public function form_reg_cita(Request $request){
         try {
-            $guid = (string) Str::uuid();
             $cita= new Citas();
-            $cita->identificacion = substr($guid, 0, 20);
-            $cita->nombre = $request->input('nombres');
-            $cita->correo = $request->input('correo');
+            $cita->identificacion =  $request->input('identificacion');
             $cita->fecha = $request->input('fecha');
             $cita->hora = $request->input('hora');
-            $cita->celular = $request->input('celular');
-            $cita->procedimiento = $request->input('procedimiento');
+            $cita->id_procedimiento = $request->input('procedimiento');
+            $cita->estado_cita = true;
             $cita->save();
-            //toastr()->success('¡Operación exitosa!', 'success');
-
             return redirect()->route('bonita_citas')->with('success', 'La cita se registró exitosamente.', 'ÉXITO');
         } catch (QueryException $e) {
             return redirect()->route('bonita_citas')->with('danger', 'Ha ocurrido un error al registrar la cita');

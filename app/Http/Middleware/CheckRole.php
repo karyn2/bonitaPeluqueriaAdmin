@@ -16,11 +16,20 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, ...$roles)
     {
-        if (auth()->check() && in_array(auth()->user()->role, $roles)) {
-            return $next($request);
+        if (auth()->check()) {
+            $userRole = auth()->user()->role;
+
+            if (in_array($userRole, $roles)) {
+                // Usuario con el rol permitido, continuar con la solicitud
+                return $next($request);
+            } elseif ($userRole === 'admin') {
+                // Usuario con el rol de "admin", redirigir a HOME
+                return redirect()->route('home'); 
+            }
         }
-    
-        abort(403, 'Acceso no autorizado.');
+
+        // Usuario no autenticado o sin el rol correcto, redirigir a '/'
+        return redirect()->to('/');
         
     }
 }

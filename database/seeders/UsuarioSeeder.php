@@ -18,9 +18,11 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         $datos = [
-            ['name' => 'Angela Ceron',
+            ['identificacion'=>'108593627',   
+            'name' => 'Angela Ceron',
             'email' => 'karynaceron@gmail.com',
             'password' => Hash::make('angela1234'),
+            'celular' => '3107132031',
             'role' => 'admin'
             ]
         ];

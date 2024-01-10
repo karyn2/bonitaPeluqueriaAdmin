@@ -18,24 +18,30 @@
                         <tr>
                             <th scope="col">Identificación</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Correo</th>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
                             <th scope="col">Celular</th>
                             <th scope="col">Procedimiento</th>
+                            <th scope="col">Estado</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         @foreach($listaCitas as $cita)
                         <tr>
                             <td>{{ $cita->identificacion }}</td>
-                            <td>{{ $cita->nombre }}</td>
-                            <td>{{ $cita->correo }}</td>
+                            <td>{{ $cita->name }}</td>
                             <td>{{ $cita->fecha }}</td>
                             <td>{{ $cita->hora }}</td>
                             <td>{{ $cita->celular }}</td>
-                            <td>{{ $cita->fkprocedimiento->nombre_procedimiento }}</td>
+                            <td>{{ $cita->nombre_procedimiento }}</td>
+                            <td>@if($cita->estado_cita)
+                                    Activa
+                                @else
+                                    Inactiva
+                                @endif
+                            </td>
                             <td class="gap-2">
                                 <a class="btn btn-success" href="#"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
                                 <a class="btn btn-danger" href="#"><i class="fa fa-trash" style="color: #ffffff;"></i></a>

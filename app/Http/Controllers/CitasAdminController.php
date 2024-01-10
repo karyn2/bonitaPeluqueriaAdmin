@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Citas;
+use App\Models\User;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,9 @@ use Illuminate\Support\Facades\DB;
 class CitasAdminController extends Controller
 {
     public function index() {
-        $citas = Citas::all();
+        $citas = Citas::join('users', 'citas.identificacion', '=', 'users.identificacion')
+        ->join('procedimiento', 'citas.id_procedimiento', '=', 'procedimiento.id_procedimiento')
+        ->get();
 
         return view("citas.lista", ["listaCitas" => $citas]);
     }

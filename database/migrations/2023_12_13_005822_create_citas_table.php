@@ -14,17 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->string('identificacion',20);
-            $table->string('nombre',100);
-            $table->string('correo',100);
+            $table->id(); 
+            $table->string('identificacion');
             $table->date('fecha');
-            $table->string('hora',20);
-            $table->string('celular',30);
-            $table->string('procedimiento',50);
-            $table->primary('identificacion');
-
-            $table->foreign('procedimiento')->references('id_procedimiento')->on('procedimiento');
-
+            $table->string('hora', 20);
+            $table->unsignedInteger('id_procedimiento');
+            $table->boolean('estado_cita');
+            $table->foreign('id_procedimiento')->references('id_procedimiento')->on('Procedimiento');  
             $table->timestamps();
         });
     }

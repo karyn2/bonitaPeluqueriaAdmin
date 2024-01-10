@@ -3,8 +3,8 @@
 @section('content')
 @vite(['resources/css/serviciosCss/citas.css' ])
 
-<div class="bodyDamas">
-    <img src="{{asset('images/img/agenda.png')}}" alt="Damas" width="100%" height="60%">
+<div class="row justify-content-center align-items-center g-2">
+    <img src=" {{ asset('images/img/agenda.png') }}" alt="Damas" width="90%">
 </div>
 <br>
 <div class="formCita mt-4">
@@ -16,19 +16,19 @@
         <div class="row mt-4">
             <div class="col-md-6">
                 <label class="form-label">Nombres y Apellidos: </label>
-                <input type="text" name="nombres" class="form-control custom-input" id="nombres" autocomplete="off">
+                <input readonly type="text" name="nombres" class="form-control custom-input" id="nombres" autocomplete="off" value="{{ old('nombres', $usuario->name) }}">
                 <div id="nombres-error" class="text-danger"></div>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Correo electrónico: </label>
-                <input type="email" name="correo" class="form-control custom-input" id="correo" autocomplete="off">
+                <input readonly type="email" name="correo" class="form-control custom-input" id="correo" autocomplete="off" value="{{ old('correo', $usuario->email) }}">
                 <div id="correo-error" class="text-danger"></div>
             </div>
         </div>
         <div class="row mt-4">
             <div class="col-md-6">
                 <label class="form-label">Número de celular: </label>
-                <input type="text" name="celular" class="form-control custom-input" id="celular" autocomplete="off">
+                <input readonly type="text" name="celular" class="form-control custom-input" id="celular" autocomplete="off" value="{{ old('celular', $usuario->celular) }}">
                 <div id="celular-error" class="text-danger"></div>
             </div>
             <div class="col-md-6">
@@ -62,11 +62,8 @@
                 </select>
                 <div id="procedimiento-error" class="text-danger"></div>
             </div>
+            <input type="hidden" name="identificacion" value="{{ old('identificacion', $usuario->identificacion) }}">
         </div>
-        <!-- <div id="errorMessage" class="text-danger"></div>
-
-        <div id="exitMessage" class="text-info mt-4 text-center" style="font-size: 20px;"></div> -->
-
         <div class=" mt-4 text-center">
             <button type="submit" id="submitButton" onclick="validarFormulario()" class="btnGuardar">Enviar</button>
         </div>
