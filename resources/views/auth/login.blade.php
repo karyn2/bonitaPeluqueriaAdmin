@@ -18,8 +18,6 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card login-form">
-                    <!-- <div class="card-header">{{ __('Login') }}</div> -->
-
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -50,18 +48,6 @@
                                     @enderror
                                 </div>
                             </div>
-
-                            <!-- <div class="row mb-3">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
-                                </div>
-                            </div> -->
                             <br>
 
                             <div class="row mb-0">
@@ -69,12 +55,13 @@
                                     <button type="submit" class="fuente">
                                     {{ __('Iniciar sesión') }} 
                                     </button>
-
-                                    <!-- @if (Route::has('password.request'))
-                                        <a class="btn btn-link btnColor mt-2" href="{{ route('password.request') }}">
-                                            {{ __('Olvide mi contraseña') }}
-                                        </a>
-                                    @endif -->
+                                                              
+                                    <a class="btn btn-link btnColor mt-2" href="/servicios/registro">
+                                    ¿Aún no tienes cuenta?  {{ __('Registráte') }}
+                                    </a>
+                                    <a class="btn btn-link btnColor mt-2" href="/">
+                                     {{ __('Inicio') }}
+                                    </a>
                                 </div>
                             </div>
                         </form>

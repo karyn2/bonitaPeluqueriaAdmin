@@ -55,7 +55,6 @@
                 @else
                     <a class="nav-link dropdown-toggle letrasBlancas" data-bs-toggle="dropdown">{{ Auth::user()->name }}</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/perfil">Ver Perfil</a></li>
                         <li>
                             <form method="POST" action="/logout">
                                 @csrf
@@ -84,9 +83,9 @@
   
     <div class="text-white mt-4">
           <p>
-            <i class="fas fa-map-marked"></i> Carrera 6 #14-40, Ipiales &nbsp;&nbsp;
-            <i class="fas fa-phone"></i> 317 759 97 48 &nbsp;&nbsp;
-            <i class="fas fa-envelope"></i> bonitapeluqueria08@gmail.com 
+            <i class="fa fa-map-marked"></i> Carrera 6 #14-40, Ipiales &nbsp;&nbsp;
+            <i class="fa fa-phone"></i> 317 759 97 48 &nbsp;&nbsp;
+            <i class="fa fa-envelope"></i> bonitapeluqueria08@gmail.com 
             <br>
             AVANZADA III-2023 Todos los derechos resevados
           </p>

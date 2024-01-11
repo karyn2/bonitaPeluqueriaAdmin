@@ -36,6 +36,7 @@ use App\Http\Controllers\EgresosController;
 //ANGELA 36
 use App\HTTP\Controllers\PresentacionServiciosController;
 use App\HTTP\Controllers\CitasController;
+use App\HTTP\Controllers\UsuarioController;
 
 
 
@@ -112,8 +113,23 @@ Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form
 //PERSONAL
 Route::middleware(['auth', 'role:admin'])->group(function () {
     // Rutas para administradores
+    //EMPLEADOS O PERSONAL
     Route::get('/personal/listado', [PersonalController::class, 'index'])->name('listado_personal');
+    Route::get('/personal/editar/{id}', [PersonalController::class, 'form_edicion'])->name('editar_empleado');
+    Route::post('/personal/editar/{id}', [PersonalController::class, 'editar'])->name('actualizar_empleado');
+    Route::get('/personal/crear_registro', [PersonalController::class, 'form_registro_personal'])->name('crear_personal');  
+    Route::post('/personal/registrar', [PersonalController::class, 'registrar'])->name('form_registrar_personal');
+    
+    //HOME
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    //USUARIOS
+    Route::get('/usuarios', [App\Http\Controllers\UsuarioController::class, 'index'])->name('lista_usuarios');
+    Route::get('/usuarios/editar/{id}', [UsuarioController::class, 'form_edicion'])->name('editar_usuario');
+    Route::post('/usuarios/editar/{id}', [UsuarioController::class, 'editar'])->name('editar');
+    Route::get('/usuarios/eliminar/{id}', [UsuarioController::class, 'eliminar'])->name('eliminar_usuario');
+
+
 });
 
 Route::middleware(['auth', 'role:user'])->group(function () {
@@ -123,13 +139,8 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 });
 
 
-// Route::get('/personal/listado', [PersonalController::class, 'index'])
-// ->middleware(['auth', 'verified'])->name('listado_personal');
-Route::get('/personal/crear_registro', [PersonalController::class, 'form_registro_personal'])
-->middleware(['auth', 'verified'])->name('crear_personal');
 
-Route::post('/personal/registrar', [PersonalController::class, 'registrar'])
-->middleware(['auth', 'verified'])->name('form_registrar_personal');
+//VISTAS PUBLICAS
 
 Route::get('/', [PresentacionServiciosController::class, 'index'])->name('bonita_inicio');
 Route::get('/servicios/damas', [PresentacionServiciosController::class, 'damas'])->name('bonita_damas');
@@ -137,12 +148,8 @@ Route::get('/servicios/caballeros', [PresentacionServiciosController::class, 'ca
 Route::get('/servicios/maquillaje', [PresentacionServiciosController::class, 'maquillaje'])->name('bonita_maquillaje');
 
 
-
 Route::get('/servicios/registro', [PresentacionServiciosController::class, 'RegistroCliente'])->name('bonita_registrarme');
 Route::post('/servicios/registrar', [PresentacionServiciosController::class, 'registrar'])->name('form_registrar');
-
-
-
 
 
 

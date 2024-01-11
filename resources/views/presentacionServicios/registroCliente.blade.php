@@ -11,7 +11,17 @@
     <div class="text-center mt-4">
         <p class="degradarPalabra">Crea una cuenta en nuestra página, llenando el siguiente formulario</p>
     </div>
-    <form method="POST" action="{{ route('form_registrar') }}"  onsubmit="return validarFormulario()">
+    @if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    @endif
+    <form method="POST" action="{{ route('form_registrar') }}" id="ClienteForm"  onsubmit="return validarFormulario()">
          @csrf
         <div class="row mt-4">
             <div class="col-md-6">
@@ -106,7 +116,15 @@
             return false;
         }
 
-        return true; // Si todos los campos están llenos y las contraseñas coinciden, puedes enviar el formulario
+        if (validarUsuarioSync(identificacion, 'identificacion-error', 'El número de identificación ya se encuentra registrado.')) {
+        return false;
+        }
+
+        if (validarUsuarioSync(email, 'email-error', 'El correo electrónico ya se encuentra registrado.')) {
+            return false;
+        }
+
+            return true; // Si todos los campos están llenos y las contraseñas coinciden, puedes enviar el formulario
     }
 
     function reiniciarMensajesError() {
@@ -123,6 +141,10 @@
         // Muestra el mensaje de error en el elemento correspondiente
         document.getElementById(elementId).innerHTML = mensaje;
     }
+
+    
+
+    
 </script>
 
 

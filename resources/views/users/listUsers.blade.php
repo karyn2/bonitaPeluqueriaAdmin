@@ -7,32 +7,34 @@
 
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
-            <h3 class="card-title text-start">Lista de Empleados</h3>
-            <a class="btn btn-primary ml-auto" href="/personal/crear_registro"><i class="fa fa-plus"></i> Registrar</a>
+            <h3 class="card-title text-start">Lista de Usuarios</h3>
+            <a class="btn btn-primary ml-auto" href="/register"><i class="fa fa-plus"></i> Registrar</a>
         </div>
         <div class="card-body mt-4">
             <div class="table-responsive">
                 <!-- Tabla de citas -->
-                <table class="table table-bordered table-striped mt-2 text-center" id="tabla-citas">
+                <table class="table table-bordered table-striped mt-2" id="tabla-citas">
                     <thead>
                             <tr>
                             <th scope="col">Identificación</th>
                             <th scope="col">Nombres</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Porcentaje Pago</th>
+                            <th scope="col">correo</th>
+                            <th scope="col">Role</th>
                             <th scope="col">Opciones</th>
                             </tr>
                     </thead>
 
                     <tbody>
-                    @foreach($personals as $p)
+                        @foreach($user as $p)
                             <tr>
                                 <td>{{ $p->identificacion }}</td>
-                                <td>{{ $p->nombres }} {{ $p->apellidos }}</td>
-                                <td>{{ $p->cargo }}</td>
-                                <td>{{ $p->porcentaje_pago * 100 }} %</td>
+                                <td>{{ $p->name }} </td>
+                                <td>{{ $p->email }}</td>
+                                <td>{{ $p->role}}</td>
                                 <td>
-                                    <a class="btn btn-info text-white" href="{{route('editar_empleado', $p->identificacion)}}"><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-info text-white" href="{{route('editar_usuario', $p->id)}}"><i class="fa fa-pencil"></i></a>
+                                <a class="btn btn-danger text-white" href="{{route('eliminar_usuario', $p->id)}}">
+                                <i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach

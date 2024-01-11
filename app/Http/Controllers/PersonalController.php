@@ -44,4 +44,24 @@ class PersonalController extends Controller
         }
     }
 
+    public function form_edicion($id){
+        $personal = Personal::findorFail($id);
+        $cargos = ['administradora', 'auxiliar'];
+        $porcentajesPago = [1.0 , 0.50 ];
+        return view('personal.form_edicion',compact('personal', 'cargos', 'porcentajesPago'));
+    }
+
+    public function editar(Request $request, $id){
+        $personal = Personal::findorFail($id);
+        $personal->nombres=$request->input('nombres');
+        $personal->apellidos=$request->input('apellidos');
+        $personal->correo=$request->input('correo');
+        $personal->telefono=$request->input('telefono');
+        $personal->cargo=$request->input('cargo');
+        $personal->porcentaje_pago=$request->input('porcentaje_pago');
+        $personal->save();
+        return redirect()->route('listado_personal')->with('success', 'Empleado actualizado.', 'ÉXITO');
+    }
+
+
 }

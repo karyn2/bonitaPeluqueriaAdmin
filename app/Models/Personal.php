@@ -11,4 +11,18 @@ class Personal extends Model
     protected $primaryKey='identificacion';
     public $timestamps = 'true';
     use HasFactory;
+
+    protected $fillable = [
+        'identificacion',
+        'nombres',
+        'apellidos',
+        'correo',
+        'telefono',
+        'cargo',
+        'porcentaje_pago'
+    ];
+
+    protected $casts = [
+        'porcentaje_pago' => 'float',
+    ];
 }

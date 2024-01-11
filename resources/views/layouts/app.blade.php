@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ url('/register') }}">
+                    <a href="{{ url('/usuarios') }}">
                         <img src="{{ asset('images/perfil.png') }}" alt="Imagen" class="iconosSidebar">
                         <span class="tooltip">Usuarios</span>
                     </a>

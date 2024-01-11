@@ -9,6 +9,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Validator;
 
 
 class PresentacionServiciosController extends Controller
@@ -85,6 +86,16 @@ class PresentacionServiciosController extends Controller
     public function registrar(Request $request)
     {
         try {
+            $mensajes = [
+                'identificacion.unique' => 'La identificación ya está registrada.',
+                'email.unique' => 'El correo electrónico ya está registrado.',
+            ];
+
+            $request->validate([
+            'identificacion' => 'unique:users',
+            'email' => 'unique:users',
+            ], $mensajes);
+
             $usuario = new User();
             $usuario->identificacion = $request->input('identificacion');
             $usuario->name = $request->input('name');
@@ -98,8 +109,10 @@ class PresentacionServiciosController extends Controller
             Auth::login($usuario);
             return redirect()->route('bonita_inicio')->with('success', 'Su cuenta ha sido creada de manera exitosa', 'ÉXITO');
         } catch (ValidationException $e) {
-            return redirect()->route('bonita_registrarme')->with('danger', 'Ha ocurrido un error en el registro', 'ERROR');
+            return redirect()->route('bonita_registrarme')->withErrors($e->errors())->with('danger', 'Ha ocurrido un error en el registro', 'ERROR');
         }
     }
 
+    
+   
 }

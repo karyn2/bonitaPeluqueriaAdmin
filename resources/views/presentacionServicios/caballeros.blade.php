@@ -194,25 +194,132 @@
     </div>
 
     <div id="contenido3" class="contenido">
-    <div class="text-center text-white">
-    <div class=" row ">
-        <div class="col-md-6 text-center text-white">
-            <br><br>
-            <h2>LAVADO</h2>
-            <p class="textBlanco mt-4">
-               
-               Nuestro servicio sumerge a los hombres en una experiencia rejuvenecedora tanto para su cabello como para sus sentidos. Cada gota de agua, cada masaje suave, se combinan para ofrecerles un momento de indulgencia pura. <br> <br>
-               Imagina sentir cómo las tensiones del día se desvanecen mientras te entregas a las manos expertas de nuestros estilistas especializados en cuidado masculino. Ven y sumérgete en un mundo de mimos y relajación con nuestro servicio de lavado, porque en <b>BONITA</b>, creemos que incluso los pequeños detalles pueden marcar una gran diferencia en tu apariencia y bienestar. <br> <br>
-               <b class="text-center">¡Experimenta la perfección en cada hebra! </b>
-                
-            </p>
-        </div>
-        <div class="col-md-6 mt-4">
-            <br><br><br>
-            <img src="{{asset('images/img2/lavado-cabello.jpg')}}" alt="Damas" width="100%" class="rounded-image hover-zoom">
+        <div class="text-center text-white">
+            <div class=" row ">
+                <div class="col-md-6 text-center text-white">
+                    <br><br>
+                    <h2>LAVADO</h2>
+                    <p class="textBlanco mt-4">
+                    
+                    Nuestro servicio sumerge a los hombres en una experiencia rejuvenecedora tanto para su cabello como para sus sentidos. Cada gota de agua, cada masaje suave, se combinan para ofrecerles un momento de indulgencia pura. <br> <br>
+                    Imagina sentir cómo las tensiones del día se desvanecen mientras te entregas a las manos expertas de nuestros estilistas especializados en cuidado masculino. Ven y sumérgete en un mundo de mimos y relajación con nuestro servicio de lavado, porque en <b>BONITA</b>, creemos que incluso los pequeños detalles pueden marcar una gran diferencia en tu apariencia y bienestar. <br> <br>
+                    <b class="text-center">¡Experimenta la perfección en cada hebra! </b>
+                        
+                    </p>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <br><br><br>
+                    <img src="{{asset('images/img2/lavado-cabello.jpg')}}" alt="Damas" width="100%" class="rounded-image hover-zoom">
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+    <div id="contenido4" class="contenido mt-4  ">
+        <div class="text-center text-white">
+            <div class=" row  mt-4">
+                <h2>LISTA DE PRECIOS</h2>
+                <h3 class="text-center mt-4">CORTES</h3>
+                <div class="row textBlanco2">
+                    <table>
+                        <tr>
+                            <td>
+                                Corte cesar
+                            </td>
+                            <td>
+                               $15.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Corte Texturizado
+                            </td>
+                            <td>
+                               $15.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Corte Comb Over
+                            </td>
+                            <td>
+                               $18.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Corte Pompadour
+                            </td>
+                            <td>
+                               $18.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Corte Fresh Crop
+                            </td>
+                            <td>
+                               $20.000
+                            </td>
+                        </tr>
+                            
+                        <tr>
+                            <td>
+                                Corte Hair Tatto
+                            </td>
+                            <td>
+                               $30.000
+                            </td>
+                        </tr>                                                       
+                    </table>
+                </div>
+                <h3 class="text-center mt-4">BARBA</h3>
+                <div class="row textBlanco2">
+                    <table>
+                        <tr>
+                            <td>
+                                Barba Chevron
+                            </td>
+                            <td>
+                               $15.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Barba de oso
+                            </td>
+                            <td>
+                               $15.000
+                            </td>
+                        </tr>
+                        <tr>
+                             <td>
+                                Barba de 3 días
+                             </td>
+                            <td>
+                               $10.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Barba Candado
+                            </td>
+                            <td>
+                               $12.000
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Barba Van Dyke
+                            </td>
+                            <td>
+                               $15.000
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
