@@ -90,21 +90,20 @@ Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('servicios');
 Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_servicio');
-//Egresos
+Route::post('/servicios/editar/{id_procedimiento}', [ServiciosController::class, 'modal_editar'])
+->middleware(['auth', 'verified'])->name('form_editar_servicio');
 Route::get('/contabilidad', [EgresosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('contabilidad');
 Route::get('/egresos/listar', [EgresosController::class, 'list'])
 ->middleware(['auth', 'verified'])->name('listar_egresos');
 Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_egreso');
-
-
-
-
-
-
-
-
+Route::match(['get', 'post'], '/egresos/informe',[EgresosController::class, 'informe'])
+->middleware(['auth', 'verified'])->name('informe_egresos');
+Route::match(['get', 'post'],'/egresos/pdf', [EgresosController::class, 'generarPDF'])
+->middleware(['auth', 'verified'])->name('egreso.pdf');
+Route::post('/egresos/editar/{id_egreso}', [EgresosController::class, 'modal_editar'])
+->middleware(['auth', 'verified'])->name('form_editar_egreso');
 
 
 
