@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Egreso;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class EgresosController extends Controller
 {
@@ -56,5 +57,70 @@ class EgresosController extends Controller
             }
         }
     }
+
+    public function informe(Request $request)
+    {
+        $tipo_egreso = DB::table('tipos_egreso')->get();
+        if ($request->isMethod('GET')) {
+            
+            return view('egresos.informeEgreso', compact('tipo_egreso'));
+        } elseif ($request->isMethod('POST')) {
+            $validator = $request->validate([
+                'fk_tipo_egreso' => 'required',
+                'fecha_inicio' => 'required|date_format:Y-m-d',
+                'fecha_fin' => 'required|date_format:Y-m-d',
+            ]);
+    
+            try {
+                $fkTipoEgreso = $request->input('fk_tipo_egreso');
+                $fechaInicio = $request->input('fecha_inicio');
+                
+                // Establecer la fecha de fin al final del día
+                $fechaFin = $request->input('fecha_fin') . ' 23:59:59';
+    
+                $egresos = DB::table('egreso')
+                    ->join('tipos_egreso', 'egreso.fk_tipo_egreso', '=', 'tipos_egreso.id')
+                    ->join('users', 'egreso.fk_users', '=', 'users.id')
+                    ->where('egreso.fk_tipo_egreso', '=', $fkTipoEgreso)
+                    ->whereBetween('egreso.fecha_hora', [$fechaInicio, $fechaFin])
+                    ->get();
+    
+                return view('egresos.informeEgreso', compact('egresos', 'tipo_egreso'));
+            } catch (\Exception $e) {
+                return redirect()->back()->with('error', 'Hubo un error al procesar la solicitud.');
+            }
+        }
+    }
+
+public function generarPDF(Request $request)
+{
+    $validator = $request->validate([
+        'fk_tipo_egreso' => 'required',
+        'fecha_inicio' => 'required|date_format:Y-m-d',
+        'fecha_fin' => 'required|date_format:Y-m-d',
+    ]);
+
+    try {
+        $fkTipoEgreso = $request->input('fk_tipo_egreso');
+        $fechaInicio = $request->input('fecha_inicio');
+        
+        // Establecer la fecha de fin al final del día
+        $fechaFin = $request->input('fecha_fin') . ' 23:59:59';
+
+        $egresos = DB::table('egreso')
+            ->join('tipos_egreso', 'egreso.fk_tipo_egreso', '=', 'tipos_egreso.id')
+            ->join('users', 'egreso.fk_users', '=', 'users.id')
+            ->where('egreso.fk_tipo_egreso', '=', $fkTipoEgreso)
+            ->whereBetween('egreso.fecha_hora', [$fechaInicio, $fechaFin])
+            ->get();
+        $pdf = Pdf::loadView('egresos.informePdf', compact('egresos'));
+        return $pdf->stream('informe_egresos.pdf');
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Hubo un error al procesar la solicitud.');
+    }
+}
+
+    
+
 }
 

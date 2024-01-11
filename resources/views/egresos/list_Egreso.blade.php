@@ -29,7 +29,6 @@
                                 <th>Realizó</th>
                                 <th>Recibió</th>
                                 <th>Monto</th>
-                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
@@ -41,15 +40,7 @@
                                     <td>{{ $s->fecha_hora }}</td>
                                     <td>{{ $s->name }}</td>
                                     <td>{{ $s->a_quien_se_dio }}</td>
-                                    <td>{{ $s->valor }}</td>
-                                    <td style="padding: 0.5rem;">
-                                        <button class="btn btn-warning btn-sm" style="margin-right: 0.5rem;">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </td>
+                                    <td>${{ number_format($s->valor, 0, ',', '.') }}</td>
                                 </tr>
                             @empty
                                 <tr>
