@@ -33,8 +33,8 @@
                             <td>{{ $ingreso->nombre_procedimiento }}</td>
                             <td>{{ $ingreso->nombres . ' ' . $ingreso->apellidos }}</td>
                             <td class="gap-2">
-                                <a class="btn btn-success" href="#"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
-                                <a class="btn btn-danger" href="#"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-success" href="{{ route('cuentas_editar', $ingreso->id_ingresos) }}"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-danger" href="{{ route('cuentas_eliminar', $ingreso->id_ingresos) }}"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
                             </td>
                         </tr>
                         @endforeach

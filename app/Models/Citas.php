@@ -17,7 +17,7 @@ class Citas extends Model
         'estado_cita'
     ];
 
-    public $timestamps = false; // Desactivar las marcas de tiempo
+    public $timestamps = true;
 
     public function fkprocedimiento()
     {
