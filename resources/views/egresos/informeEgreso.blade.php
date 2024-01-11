@@ -36,7 +36,7 @@
                             @endforeach
                         </select>
                         @error('fk_tipo_egreso')
-                        <div class="invalid-feedback">Seleccione un tipo de egreso por favor!</div>
+                        <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
 
@@ -51,19 +51,13 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="fecha_fin" class="form-label">Fecha Fin</label>
-                        <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" required>
-                        @error('fecha_fin')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <label for="fecha_inicio" class="form-label">Fecha Inicio</label>
+                        <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
                     </div>
         
                     <div class="col-md-4">
                         <label for="fecha_fin" class="form-label">Fecha Fin</label>
-                        <input type="date" name="fecha_fin" id="fecha_fin" class="form-control" required>
-                        @error('fecha_fin')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                        <input type="date" name="fecha_fin" id="fecha_fin" class="form-control">
                     </div>
                 </div>
 
