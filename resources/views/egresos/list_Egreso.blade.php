@@ -10,7 +10,11 @@
                     <div class="col-md-6">
                         <h4>Lista de Egresos</h4>
                     </div>
+
                     <div class="col-md-6 text-end">
+                        <a class="btn btn-primary ms-auto me-2" href="{{ route('informe_egresos') }}">
+                            <i class="fa fa-file-pdf-o"></i> Reporte
+                        </a>
                         <a href="{{route('form_registrar_egreso')}}"  class="btn btn-primary float-end">
                             <i class="bi bi-plus"></i> Registrar Egreso
                         </a>
@@ -29,7 +33,6 @@
                                 <th>Realizó</th>
                                 <th>Recibió</th>
                                 <th>Monto</th>
-                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody">
@@ -41,15 +44,7 @@
                                     <td>{{ $s->fecha_hora }}</td>
                                     <td>{{ $s->name }}</td>
                                     <td>{{ $s->a_quien_se_dio }}</td>
-                                    <td>{{ $s->valor }}</td>
-                                    <td style="padding: 0.5rem;">
-                                        <button class="btn btn-warning btn-sm" style="margin-right: 0.5rem;">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                        <button class="btn btn-danger btn-sm">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </td>
+                                    <td>${{ number_format($s->valor, 0, ',', '.') }}</td>
                                 </tr>
                             @empty
                                 <tr>

@@ -57,17 +57,15 @@ use App\HTTP\Controllers\UsuarioController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
 
 Auth::routes();
+Route::match(['get', 'post'], '/cuentas/informe',[CuentasController::class, 'informe'])->middleware(['auth', 'verified'])->name('informe_cuentas');
+Route::match(['get', 'post'],'/ingresos/pdf', [CuentasController::class, 'generarPDF'])->middleware(['auth', 'verified'])->name('ingresos.pdf');
 
 
-
-
-
-
+Route::get('/citas/editar/{id}', [CitasAdminController::class, 'form_editar_cita'])->name('citas_editar');
+Route::post('/citas/actualizar/{id}', [CitasAdminController::class, 'actualizar_cita'])->name('citas_actualizar');
+Route::get('/citas/eliminar/{id}', [CitasAdminController::class, 'eliminar_cita'])->name('citas_eliminar');
 //DANIEL 70
 //Rutas citas administrador
 Route::get('/citas/listar', [CitasAdminController::class, 'index'])
@@ -76,36 +74,36 @@ Route::get('/citas/crear_registro', [CitasAdminController::class, 'form_registro
 ->middleware(['auth', 'verified'])->name('crear_cita');
 Route::post('/citas/crear_cita', [CitasAdminController::class, 'registrar_cita'])
 ->middleware(['auth', 'verified'])->name('form_registrar_cita');
+
 //Ruta cuentass
-Route::get('/cuentas/listar', [CuentasController::class, 'index'])
-->middleware(['auth', 'verified'])->name('listaCuentas');
+Route::get('/cuentas/listar', [CuentasController::class, 'index'])->middleware(['auth', 'verified'])->name('listaCuentas');
+Route::get('/cuentas/crear_registro', [CuentasController::class, 'form_registro_ingreso'])->middleware(['auth', 'verified'])->name('crear_ingreso');
+Route::post('/cuentas/registrar', [CuentasController::class, 'registrar_ingreso'])->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
+Route::get('/cuentas/editar/{id}', [CuentasController::class, 'form_editar_ingreso'])->name('cuentas_editar');
+Route::post('/cuentas/actualizar/{id}', [CuentasController::class, 'actualizar_ingreso'])->name('cuentas_actualizar');
+Route::get('/cuentas/eliminar/{id}', [CuentasController::class, 'eliminar_ingreso'])->name('cuentas_eliminar');
+Route::post('/cuentas/eliminar/{id}', [CuentasController::class, 'eliminar_ingreso'])->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
 
-Route::get('/cuentas/crear_registro', [CuentasController::class, 'form_registro_ingreso'])
-->middleware(['auth', 'verified'])->name('crear_ingreso');
-
-Route::post('/cuentas/registrar', [CuentasController::class, 'registrar_ingreso'])
-->middleware(['auth', 'verified'])->name('form_registrar_cuentas');
 
 //VICTOR 88
 Route::get('/servicios/listar', [ServiciosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('servicios');
 Route::match(['get', 'post'], '/servicios/crear', [ServiciosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_servicio');
-//Egresos
+Route::post('/servicios/editar/{id_procedimiento}', [ServiciosController::class, 'modal_editar'])
+->middleware(['auth', 'verified'])->name('form_editar_servicio');
 Route::get('/contabilidad', [EgresosController::class, 'index'])
 ->middleware(['auth', 'verified'])->name('contabilidad');
 Route::get('/egresos/listar', [EgresosController::class, 'list'])
 ->middleware(['auth', 'verified'])->name('listar_egresos');
 Route::match(['get', 'post'], '/egresos/crear', [EgresosController::class, 'form_registrar'])
 ->middleware(['auth', 'verified'])->name('form_registrar_egreso');
-
-
-
-
-
-
-
-
+Route::match(['get', 'post'], '/egresos/informe',[EgresosController::class, 'informe'])
+->middleware(['auth', 'verified'])->name('informe_egresos');
+Route::match(['get', 'post'],'/egresos/pdf', [EgresosController::class, 'generarPDF'])
+->middleware(['auth', 'verified'])->name('egreso.pdf');
+Route::post('/egresos/editar/{id_egreso}', [EgresosController::class, 'modal_editar'])
+->middleware(['auth', 'verified'])->name('form_editar_egreso');
 
 
 

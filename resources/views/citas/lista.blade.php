@@ -37,14 +37,14 @@
                             <td>{{ $cita->celular }}</td>
                             <td>{{ $cita->nombre_procedimiento }}</td>
                             <td>@if($cita->estado_cita)
-                                    Activa
+                                    Terminada
                                 @else
-                                    Inactiva
+                                    Pendiente
                                 @endif
                             </td>
                             <td class="gap-2">
-                                <a class="btn btn-success" href="#"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
-                                <a class="btn btn-danger" href="#"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-success" href="{{ route('citas_editar', $cita->id) }}"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-danger" href="{{ route('citas_eliminar', $cita->id) }}"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
                             </td>
                         </tr>
                         @endforeach

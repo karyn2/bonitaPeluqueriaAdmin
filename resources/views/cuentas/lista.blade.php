@@ -8,6 +8,9 @@
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
             <h3 class="card-title text-start">Lista de ingresos</h3>
+            <a class="btn btn-primary ms-auto me-2" href="{{ route('informe_cuentas') }}">
+                <i class="fa fa-file-pdf-o"></i> Reporte
+            </a>
             <a class="btn btn-primary ml-auto" href=" {{ route('crear_ingreso')}}"><i class="fa fa-plus"></i> Registrar ingreso</a>
         </div>
         <div class="card-body">
@@ -33,8 +36,8 @@
                             <td>{{ $ingreso->nombre_procedimiento }}</td>
                             <td>{{ $ingreso->nombres . ' ' . $ingreso->apellidos }}</td>
                             <td class="gap-2">
-                                <a class="btn btn-success" href="#"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
-                                <a class="btn btn-danger" href="#"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-success" href="{{ route('cuentas_editar', $ingreso->id_ingresos) }}"><i class="fa fa-pencil" style="color: #ffffff;"></i></a>
+                                <a class="btn btn-danger" href="{{ route('cuentas_eliminar', $ingreso->id_ingresos) }}"><i class="fa fa-trash" style="color: #ffffff;"></i></a>
                             </td>
                         </tr>
                         @endforeach
