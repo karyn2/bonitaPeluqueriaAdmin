@@ -41,7 +41,7 @@ class CuentasController extends Controller
             $cuenta->fk_id_procedimiento = $request->input('procedimiento');
             $cuenta->fk_identificacion = $request->input('personal');
             $cuenta->save();
-            return redirect()->route('listaCuentas');
+            return redirect()->route('listaCuentas')->with('success', 'El ingreso se registró exitosamente.', 'ÉXITO');
         } catch (QueryException $e) {
 
            echo $cuenta;
@@ -74,7 +74,7 @@ class CuentasController extends Controller
             $cuenta->fk_id_procedimiento = $request->input('procedimiento');
             $cuenta->fk_identificacion = $request->input('personal');
             $cuenta->save();
-            return redirect()->route('listaCuentas');
+            return redirect()->route('listaCuentas')->with('success', 'El ingreso se registró exitosamente.', 'ÉXITO');
         } catch (QueryException $e) {
             echo $e;
         }
@@ -84,7 +84,7 @@ class CuentasController extends Controller
         try {
             $cuenta = Cuentas::find($id_ingresos);
             $cuenta->delete();
-            return redirect()->route('listaCuentas');
+            return redirect()->route('listaCuentas')->with('success', 'El ingreso se elimino.', 'ÉXITO');
         } catch (QueryException $e) {
             echo $e;
         }

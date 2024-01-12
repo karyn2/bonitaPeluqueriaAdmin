@@ -56,7 +56,7 @@ class CitasAdminController extends Controller
             $cita->estado_cita = 0;
 
             $cita->save();
-            return redirect()->route('listaCitas');
+            return redirect()->route('listaCitas')->with('success', 'La cita se registró exitosamente.', 'ÉXITO');
 
         } catch (QueryException $e) {
             Log::error($e->getMessage()); // Registrar el error
@@ -104,7 +104,7 @@ class CitasAdminController extends Controller
             $cita->estado_cita = $request->input('estado');
 
             $cita->save();
-            return redirect()->route('listaCitas');
+            return redirect()->route('listaCitas')->with('success', 'La cita se actualizó exitosamente.', 'ÉXITO');
 
         } catch (QueryException $e) {
             Log::error($e->getMessage()); // Registrar el error
@@ -116,7 +116,7 @@ class CitasAdminController extends Controller
         try {
             $cita = Citas::findOrFail($id);
             $cita->delete();
-            return redirect()->route('listaCitas');
+            return redirect()->route('listaCitas')->with('success', 'La cita se elimino', 'ÉXITO');
         } catch (QueryException $e) {
             Log::error($e->getMessage()); // Registrar el error
             return redirect()->back()->with('error', 'Hubo un problema al eliminar la cita.');
