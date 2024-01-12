@@ -10,7 +10,11 @@
                     <div class="col-md-6">
                         <h4>Lista de Egresos</h4>
                     </div>
+
                     <div class="col-md-6 text-end">
+                        <a class="btn btn-primary ms-auto me-2" href="{{ route('informe_egresos') }}">
+                            <i class="fa fa-file-pdf-o"></i> Reporte
+                        </a>
                         <a href="{{route('form_registrar_egreso')}}"  class="btn btn-primary float-end">
                             <i class="bi bi-plus"></i> Registrar Egreso
                         </a>

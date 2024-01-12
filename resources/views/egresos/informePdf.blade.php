@@ -50,7 +50,7 @@
                     <td>{{ $s->fecha_hora }}</td>
                     <td>{{ $s->name }}</td>
                     <td>{{ $s->a_quien_se_dio }}</td>
-                    <td>{{ $s->valor }}</td>
+                    <td>$ {{ number_format($s->valor, 0, '.', '.') }}</td>
                 </tr>
             @empty
                 <tr>
@@ -59,7 +59,7 @@
             @endforelse
             <tr style="background-color: #f2f2f2;">
                 <td colspan="6" style="text-align: right;"><strong>Total:</strong></td>
-                <td>{{ $egresos->sum('valor') }}</td>
+                <td>$ {{ number_format($egresos->sum('valor'), 0, '.', '.') }}</td>
             </tr>
         </tbody>
     </table>

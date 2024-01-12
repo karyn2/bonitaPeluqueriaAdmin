@@ -8,6 +8,9 @@
         <div class="card">
             <div class="card-header d-flex align-items-center justify-content-between">
             <h3 class="card-title text-start">Lista de ingresos</h3>
+            <a class="btn btn-primary ms-auto me-2" href="{{ route('informe_cuentas') }}">
+                <i class="fa fa-file-pdf-o"></i> Reporte
+            </a>
             <a class="btn btn-primary ml-auto" href=" {{ route('crear_ingreso')}}"><i class="fa fa-plus"></i> Registrar ingreso</a>
         </div>
         <div class="card-body">
